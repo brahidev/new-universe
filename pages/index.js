@@ -1,7 +1,18 @@
-export default function Home() {
+import { useEffect } from 'react';
+import Header from '../components/Head/Header'
+
+const Home = () => {
+  useEffect(() => {
+    document.body.classList.add("home")
+  })
+
   return (
-    <h1 className="text-9xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div>
+      <Header
+        text="New Universe"
+      />
+    </div>
+  );
 }
+
+export default Home
