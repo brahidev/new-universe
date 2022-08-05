@@ -20,7 +20,7 @@ a {
 }
 
 body.home {
-  background: url(/images/HomeBG.jpg);
+  background: linear-gradient(-180deg, #7641D4 0%, #C57CB1 100%);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -32,10 +32,9 @@ body.home {
 }
 
 body.dashboard {
-    --accent: #8855ff;
     width: 100vw;
     height: 100vh;
-    background: var(--accent);
+    background: linear-gradient(-180deg, #7641D4 0%, #C57CB1 100%);
     overflow: hidden;
     padding: 0;
     margin: 0;
