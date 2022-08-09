@@ -1,5 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
+
 import Header from '../components/Head/Header'
+import Login from '../components/Login/index'
 
 const Home = () => {
   useEffect(() => {
@@ -7,10 +9,11 @@ const Home = () => {
   })
 
   return (
-    <div>
+    <div className='container mx-auto'>
       <Header
         text="New Universe"
       />
+      <Login />
     </div>
   );
 }
