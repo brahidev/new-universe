@@ -1,4 +1,4 @@
-import { All, UpdateUser, CreateUser } from '../../utils/api/users'
+import { Auth, All, UpdateUser, CreateUser } from '../../utils/api/users'
 
 export default async function handler(req, res) {
     const { method, body } = req

@@ -1,25 +1,39 @@
+import Headers from '../index'
+
 export const All = async () => {
+    const headers = await Headers()
+    if (headers.state != 200) {
+        return {
+            state: headers.state,
+            data: headers.data
+        }
+    }
+
     const data = await fetch(`${ process.env.BASE_URL }/api/users/selectAll`, {
         method: 'GET',
-        headers: {
-            'Authorization': process.env.BASE_TOKEN
-        }
+        headers
     })
 
     const response = await data.json()
 
     return {
-        state: response.status != true ? 500 : 200,
+        state: data.status,
         data: response
     }
 }
 
 export const UserByName = async (name) => {
+    const headers = await Headers()
+    if (headers.state != 200) {
+        return {
+            state: headers.state,
+            data: headers.data
+        }
+    }
+
     const data = await fetch(`${ process.env.BASE_URL }/api/users/getUserbyName/${ name }`, {
         method: 'GET',
-        headers: {
-            'Authorization': process.env.BASE_TOKEN
-        }
+        headers
     })
 
     const response = await data.json()
@@ -31,11 +45,17 @@ export const UserByName = async (name) => {
 }
 
 export const UpdateUser = async (user) => {
+    const headers = await Headers()
+    if (headers.state != 200) {
+        return {
+            state: headers.state,
+            data: headers.data
+        }
+    }
+
     const data = await fetch(`${ process.env.BASE_URL }/api/users/updateUser`, {
         method: 'PUT',
-        headers: {
-            'Authorization': process.env.BASE_TOKEN
-        },
+        headers,
         body: JSON.stringify(user)
     })
 
@@ -48,11 +68,18 @@ export const UpdateUser = async (user) => {
 }
 
 export const CreateUser = async (user) => {
+    const headers = await Headers()
+    if (headers.state != 200) {
+        return {
+            state: headers.state,
+            data: headers.data
+        }
+    }
+
+
     const data = await fetch(`${ process.env.BASE_URL }/api/users/create`, {
         method: 'POST',
-        headers: {
-            'Authorization': process.env.BASE_TOKEN
-        },
+        headers,
         body: JSON.stringify(user)
     })
 
@@ -65,11 +92,17 @@ export const CreateUser = async (user) => {
 }
 
 export const LoginUser = async (user) => {
+    const headers = await Headers()
+    if (headers.state != 200) {
+        return {
+            state: headers.state,
+            data: headers.data
+        }
+    }
+
     const data = await fetch(`${ process.env.BASE_URL }/api/users/login`, {
         method: 'POST',
-        headers: {
-            'Authorization': process.env.BASE_TOKEN
-        },
+        headers,
         body: JSON.stringify(user)
     })
 

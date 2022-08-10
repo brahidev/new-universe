@@ -1,0 +1,17 @@
+export const Auth = async () => {
+    const data = await fetch(`${ process.env.BASE_URL }/api/login_check`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*'
+        },
+        body: JSON.stringify({ username: process.env.USERNAME, password: process.env.PASS })
+    })
+
+    const response = await data.json()
+
+    return {
+        state: data.status,
+        data: response
+    }
+}
