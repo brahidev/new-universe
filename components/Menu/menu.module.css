@@ -79,10 +79,14 @@
     font-size: 128px;
     flex-grow: 1;
     user-select: none;
-    background: white;
+    background: radial-gradient(circle, rgba(103,210,196,1) 0%, rgba(123,104,247,1) 62%);
     margin: 0 8% 0 4%;
     border-radius: 10px;
     width: 50%;
+    border-width: 4px;
+    border-style: solid;
+    border: white 5px ridge;
+    scroll-behavior: auto;
 }
 
 .ul,
@@ -104,18 +108,12 @@
 
 .li {
     border-radius: 15px;
-    width: 80%;
     padding: 20px 15px;
-    position: relative;
-    cursor: pointer;
-    height: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 0;
-    position: relative;
-    user-select: none;
-    background: #0000003f;margin-bottom: 1rem;
+    background: #0000003f;
+    margin-bottom: 1rem;
+    border-width: 4px;
+    border-style: solid;
+    border: white 5px ridge;
 }
 
 .underline {
