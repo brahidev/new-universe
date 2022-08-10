@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import imgLogoTitle from '../../public/images/conejoLogo.png'
+import imgLogoTitle from '../../public/images/NewUniverseLogo.png'
 import styles from './menu.module.css'
 import { useState } from "react";
 import { initialTabs as tabs } from "../../utils/ingredients";
