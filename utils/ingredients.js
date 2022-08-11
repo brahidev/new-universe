@@ -1,7 +1,7 @@
 export const allIngredients = [
-    { icon: "🤖👽👿💀", label: "Categorias" },
-    { icon: "🎯🎳🎮🕹️", label: "Juegos" },
-    { icon: "📰🗞️📻🎙️", label: "Noticias" },
+    { icon: "🤖👽👿💀", label: "Categorias" , id: 1},
+    { icon: "🎯🎳🎮🕹️", label: "Juegos", id: 2}, 
+    { icon: "📰🗞️📻🎙️", label: "Noticias", id: 3},
 ];
 
 const [tomato, lettuce, cheese] = allIngredients;
