@@ -1,11 +1,7 @@
 export const allIngredients = [
-    { icon: "🍅", label: "Tomato" },
-    { icon: "🥬", label: "Lettuce" },
-    { icon: "🧀", label: "Cheese" },
-    { icon: "🥕", label: "Carrot" },
-    { icon: "🍌", label: "Banana" },
-    { icon: "🫐", label: "Blueberries" },
-    { icon: "🥂", label: "Champers?" }
+    { icon: "🤖👽👿💀", label: "Categories" , id: 1},
+    { icon: "🎯🎳🎮🕹️", label: "Games", id: 2}, 
+    { icon: "📰🗞️📻🎙️", label: "News", id: 3},
 ];
 
 const [tomato, lettuce, cheese] = allIngredients;
