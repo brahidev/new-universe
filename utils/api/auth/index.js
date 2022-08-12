@@ -8,6 +8,13 @@ export const Auth = async () => {
         body: JSON.stringify({ username: process.env.USERNAME, password: process.env.PASS })
     })
 
+    if (data.status != 200) {
+        return {
+            state: data.status,
+            data: 'Error Auth Token'
+        }
+    }
+
     const response = await data.json()
 
     return {
