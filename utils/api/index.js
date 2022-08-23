@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer'
 import { Auth } from './auth/'
 
 export default Headers = async () => {
