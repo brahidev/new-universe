@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import Modal from '../Modal';
+import Modal from '../Modal/register';
 
 const Login = () => {
 

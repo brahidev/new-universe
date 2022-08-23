@@ -1,5 +1,7 @@
+import {useState} from "react"
 import { motion } from "framer-motion"
 import Backdrop from "../Backdrop"
+import {userRegister} from "../../utils/provider/provider"
 
 const dropIn = {
     hidden: {
@@ -23,6 +25,14 @@ const dropIn = {
 }
 
 const Modal = ({ handleClose, content }) => {
+    
+    const [dataForm, setDataForm] = useState({userName:'', password:'', name:'', age:0, email:''});
+
+    const sendData = (e) => {
+        e.preventDefault();
+        userRegister(dataForm);
+    }
+
     return (
         <Backdrop onclick={ handleClose }>
             <motion.div
@@ -33,7 +43,7 @@ const Modal = ({ handleClose, content }) => {
                 animate="visible"
                 exit="exit"
             >
-                <div className="flex flex-col">
+                <form onSubmit={ sendData } className="flex flex-col">
                     <div className="pb-5">
                         <motion.input
                         type="text"
@@ -41,6 +51,7 @@ const Modal = ({ handleClose, content }) => {
                         className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
+                        onChange={(e)=> setDataForm({userName:e.target.value, password:dataForm.password, name:dataForm.name, age:dataForm.age, email:dataForm.email}) }
                         />
                     </div>
                     <div className="pb-5">
@@ -50,6 +61,27 @@ const Modal = ({ handleClose, content }) => {
                         className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
+                        onChange={(e)=> setDataForm({userName:dataForm.userName, password:e.target.value, name:dataForm.name, age:dataForm.age, email:dataForm.email}) }
+                        />
+                    </div>
+                    <div className="pb-5">
+                        <motion.input
+                        type="text"
+                        placeholder="Name"
+                        className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onChange={(e)=> setDataForm({userName:dataForm.userName, password:dataForm.password, name:e.target.value, age:dataForm.age, email:dataForm.email}) }
+                        />
+                    </div>
+                    <div className="pb-5">
+                        <motion.input
+                        type="number"
+                        placeholder="Age"
+                        className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onChange={(e)=> setDataForm({userName:dataForm.userName, password:dataForm.password, name:dataForm.name, age:e.target.value, email:dataForm.email}) }
                         />
                     </div>
                     <div className="pb-5">
@@ -59,39 +91,31 @@ const Modal = ({ handleClose, content }) => {
                         className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
+                        onChange={(e)=> setDataForm({userName:dataForm.userName, password:dataForm.password, name:dataForm.name, age:dataForm.age, email:e.target.value}) }
                         />
                     </div>
-                    <div className="pb-5">
-                        <motion.input
-                        type="text"
-                        placeholder="Age"
-                        className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        />
+                    <div className="flex flex-row justify-center pt-5">
+                        <button className="mr-2">
+                            <motion.button
+                            className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            >
+                                Send
+                            </motion.button>
+                        </button>
+                        <button>
+                            <motion.button
+                            className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={handleClose}
+                            >
+                                Close
+                            </motion.button>
+                        </button>
                     </div>
-                </div>
-                <div className="flex flex-row justify-center pt-5">
-                    <div className="mr-2">
-                        <motion.button
-                        className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        >
-                            Send
-                        </motion.button>
-                    </div>
-                    <div>
-                        <motion.button
-                        className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={handleClose}
-                        >
-                            Close
-                        </motion.button>
-                    </div>
-                </div>
+                </form>
             </motion.div>
         </Backdrop>
     )
