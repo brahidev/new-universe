@@ -5,7 +5,7 @@ export const Auth = async () => {
             'Content-Type': 'application/json',
             'Accept': '*/*'
         },
-        body: JSON.stringify({ username: process.env.USERNAME, password: process.env.PASS })
+        body: JSON.stringify({ username: process.env.USERLOGIN, password: process.env.PASS })
     })
 
     if (data.status != 200) {
