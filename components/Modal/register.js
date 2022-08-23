@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import Backdrop from "../Backdrop"
+//import {userRegister} from "../../utils/provider/provider"
 
 const dropIn = {
     hidden: {
@@ -77,6 +78,9 @@ const Modal = ({ handleClose, content }) => {
                         className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
+                        onClick={()=>{
+
+                        }}
                         >
                             Send
                         </motion.button>
