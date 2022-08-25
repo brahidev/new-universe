@@ -5,7 +5,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'anniversaryKirby': "url('https://kirby.nintendo.com/assets/img/anniversary-bg.jpg')",
+        'zig-zac': "url('https://kirby.nintendo.com/assets/img/zig-zag-border.png')",
+      }
+    },
   },
   plugins: [],
 }
