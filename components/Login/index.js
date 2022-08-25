@@ -16,12 +16,21 @@ const Login = () => {
     const [ errorMessage, setErrorMessage ] = useState('')
     const router = useRouter()
 
-    const close = () => setModalOpen(false)
-    const open = () => setModalOpen(true)
+    const close = (e) => {
+        e.preventDefault()
+
+        setError(false)
+        setModalOpen(false)
+    }
+    const open = (e) => {
+        e.preventDefault()
+
+        setError(false)
+        setModalOpen(true)
+    }
 
     useEffect( () => {
         const checkLogin = checkLoginCookie()
-        console.log('Check Login', checkLogin)
         if (checkLogin) {
             router.push('/dashboard')
         }
@@ -121,7 +130,7 @@ const Login = () => {
                             className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            onClick={ () => (modalOpen ? close() : open()) }
+                            onClick={ (e) => (modalOpen ? close() : open(e)) }
                         >
                             Register
                         </motion.button>

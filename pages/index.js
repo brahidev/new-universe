@@ -1,21 +1,17 @@
-import { useEffect } from 'react'
-
 import Header from '../components/Head/Header'
-import Login from '../components/Login/index'
+import HomeMenu from '../components/Home/Menu/HomeMenu';
+import Home from '../components/Home/'
 
-const Home = () => {
-  useEffect(() => {
-    document.body.classList.add("home")
-  })
-
+const Index = () => {
   return (
-    <div className='container mx-auto'>
+    <>
       <Header
         text="New Universe"
       />
-      <Login />
-    </div>
+      <HomeMenu />
+      <Home />
+    </>
   );
 }
 
-export default Home
+export default Index
