@@ -4,11 +4,14 @@ import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion';
 import Modal from '../Modal/register';
 import Error from '../Error/Error';
+import Loader from '../Loader/Loader';
 import { loginUser } from '../../utils/provider/provider'
+import { storeLoginCookie, checkLoginCookie } from '../../utils/cookies'
 
 const Login = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [ user, setUser ] = useState({ user: '', pass: '' })
+    const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(false)
     const [ errorMessage, setErrorMessage ] = useState('')
     const router = useRouter()
@@ -17,7 +20,17 @@ const Login = () => {
     const open = () => setModalOpen(true)
 
     useEffect( () => {
-        if (user.pass != '' && user.user != '') {
+        const checkLogin = checkLoginCookie()
+        console.log('Check Login', checkLogin)
+        if (checkLogin) {
+            router.push('/dashboard')
+        }
+    }, [router])
+
+    useEffect( () => {
+        checkLoginCookie()
+
+        if (user.pass != '' || user.user != '') {
             setError(false)
         }
     }, [user])
@@ -42,21 +55,27 @@ const Login = () => {
 
         setError(false)
         setErrorMessage('')
+        setLoading(true)
 
         const login = await loginUser(user)
 
         if (!login.data.status) {
+            setLoading(false)
             setError(true)
             setErrorMessage('Usuario o contraseña incorrecto 🔐')
 
             return
         }
 
+        setLoading(false)
+        storeLoginCookie()
         router.push('/dashboard')
     }
 
     return (
         <>
+            { loading && <Loader /> }
+
             <form
                 onSubmit={ onSubmit }
             >
