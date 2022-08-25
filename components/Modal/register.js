@@ -1,35 +1,58 @@
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import { motion } from "framer-motion"
 import Backdrop from "../Backdrop"
+import Error from '../Error/Error';
+import {regExpInputs} from '../../utils/regExp'
 import {userRegister} from "../../utils/provider/provider"
-
-const dropIn = {
-    hidden: {
-        y: "-100vh",
-        opacity: 0
-    },
-    visible: {
-        y: "0",
-        opacity: 1,
-        transition: {
-            duration: 0.1,
-            type: "spring",
-            damping: 100,
-            stiffness: 500
-        }
-    },
-    exit: {
-        y: "100vh",
-        opacity: 0
-    }
-}
+import {animationsFramer} from '../../utils/effectsFramerMotion'
 
 const Modal = ({ handleClose, content }) => {
     
     const [dataForm, setDataForm] = useState({userName:'', password:'', name:'', age:0, email:''});
+    const [ error, setError ] = useState(false)
+    const [ errorMessage, setErrorMessage ] = useState('')
+
+    useEffect( () => {
+        if ( errorMessage != '' ) {
+            setTimeout(() => {
+                setError(false)
+                setErrorMessage('')
+            }, 2000)
+        }
+    }, [errorMessage])
 
     const sendData = (e) => {
         e.preventDefault();
+        const sendNotification = (message) => {
+            setError(true)
+            setErrorMessage(message)
+            return;
+        }
+        if(!regExpInputs.regExpUserName.test(dataForm.userName)){
+            sendNotification('NOMBRE MAL')
+            return;
+        }
+        if(!regExpInputs.regExpPassword.test(dataForm.password)){
+            sendNotification('CONTRASEÑA MAL')
+            return;
+        }
+        if(!regExpInputs.regExpName.test(dataForm.name)){
+            console.log('NOMBRE MAL')
+            sendNotification('CONTRASEÑA MAL')
+            return;
+        }
+        if(!regExpInputs.regExpAge.test(dataForm.age)){
+            console.log('EDAD MAL')
+            sendNotification('CONTRASEÑA MAL')
+            return;
+        }
+        if(!regExpInputs.regExpEmail.test(dataForm.email)){
+            console.log('EMAIL MAL')
+            sendNotification('CONTRASEÑA MAL')
+            return;
+        }
+
+        return;
         userRegister(dataForm);
     }
 
@@ -38,7 +61,7 @@ const Modal = ({ handleClose, content }) => {
             <motion.div
                 onClick={ (e) => e.stopPropagation() }
                 className="w-1/3 h-auto m-auto p-10 rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
-                variants={ dropIn }
+                variants={ animationsFramer.dropFromUp }
                 initial="hidden"
                 animate="visible"
                 exit="exit"
@@ -116,6 +139,10 @@ const Modal = ({ handleClose, content }) => {
                         </button>
                     </div>
                 </form>
+                { error && <Error
+                    message={ errorMessage === '' ? ['Todos los campos son obligatorios 🔐'] : [errorMessage] }
+                />
+                }   
             </motion.div>
         </Backdrop>
     )

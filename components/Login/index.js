@@ -7,13 +7,14 @@ import Error from '../Error/Error';
 import Loader from '../Loader/Loader';
 import { loginUser } from '../../utils/provider/provider'
 import { storeLoginCookie, checkLoginCookie } from '../../utils/cookies'
+import { regExpInputs } from '../../utils/regExp'
 
 const Login = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [ user, setUser ] = useState({ user: '', pass: '' })
     const [ loading, setLoading ] = useState(false)
-    const [ error, setError ] = useState(false)
-    const [ errorMessage, setErrorMessage ] = useState('')
+    const [ isError, setError ] = useState(false)
+    const [ listErrorMessage, setErrorMessage ] = useState([])
     const router = useRouter()
 
     const close = () => setModalOpen(false)
@@ -27,26 +28,21 @@ const Login = () => {
         }
     }, [router])
 
-    useEffect( () => {
-        checkLoginCookie()
-
-        if (user.pass != '' || user.user != '') {
-            setError(false)
-        }
-    }, [user])
-
-    useEffect( () => {
-        if ( errorMessage != '' ) {
-            setTimeout(() => {
-                setError(false)
-            }, 2000)
-        }
-    }, [errorMessage])
-
     const onSubmit = async (e) => {
         e.preventDefault()
-
-        if (user.pass === '' || user.user === '') {
+        console.log('Submit')
+        if(!regExpInputs.regExpUserName.test(user.user)){
+            setError(true)
+            setErrorMessage([...['NOMBRE MAL']])
+            return;
+        }
+        if(!regExpInputs.regExpPassword.test(user.pass)){
+            setError(true)
+            setErrorMessage([...['CONTRASEÑA MAL']])
+            return;
+        }
+        return;
+        /*if (user.pass === '' || user.user === '') {
             setError(true)
             setErrorMessage('')
 
@@ -65,7 +61,7 @@ const Login = () => {
             setErrorMessage('Usuario o contraseña incorrecto 🔐')
 
             return
-        }
+        }*/
 
         setLoading(false)
         storeLoginCookie()
@@ -128,9 +124,9 @@ const Login = () => {
                     </div>
                 </div>
             </form>
-
-            { error && <Error
-                    message={ errorMessage === '' ? 'Todos los campos son obligatorios 🔐' : errorMessage }
+            {isError &&
+                <Error
+                    listMessages={ listErrorMessage.length === 0 ? ['Todos los campos son obligatorios 🔐'] : listErrorMessage }
                 />
             }
             <AnimatePresence

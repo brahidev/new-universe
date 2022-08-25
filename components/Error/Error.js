@@ -1,27 +1,61 @@
+import { useEffect,useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import {animationsFramer} from '../../utils/effectsFramerMotion'
 
-const Error = ({ message }) => (
+const Error = ({ listMessages, duration=2000 }) => {
+
+    const [list,setList] = useState([]);
+    useEffect(() => {
+        setList([...listMessages]);
+    }, [listMessages]);
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (listMessages.length && list.length) {
+                deleteToast(listMessages[0].id);
+            }
+        }, duration);
+        
+        return () => {
+            clearInterval(interval);
+        }
+
+        // eslint-disable-next-line
+    }, [listMessages, duration, list]);
+
+    const deleteToast = id => {
+        const listItemIndex = list.findIndex(e => e.id === id);
+        const toastListItem = listMessages.findIndex(e => e.id === id);
+        list.splice(listItemIndex, 1);
+        listMessages.splice(toastListItem, 1);
+        setList([...list]);
+    }
+
+return(    
     <>
-        <ul className="fixed bottom-0 right-0 top-0 flex flex-col justify-end">
-            <AnimatePresence initial={false} exitBeforeEnter={ true }
-                onExitComplete={ () => null }>
-                {
-                    <motion.li
-                        key={ Math.random() }
-                        positionTransition
-                        initial={{ opacity: 0, y: 50, scale: 0.3 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
-                        className="bg-indigo-700 shadow-lg shadow-indigo-500/40 p-0 w-80 m-3 flex grow-0 shrink-0 basis-24 relative rounded-xl"
-                    >
-                        <div className="flex justify-center m-6 items-center text-white italic">
-                            <p> { message } </p>
-                        </div>
-                    </motion.li>
-                }
-            </AnimatePresence>
-        </ul>
+        {list.map((itemToast)=>
+            <motion.div
+                    onClick={ (e) => e.stopPropagation() }
+                    className="w-56 fixed p-0 h-16 top-[80vh] right-[5vw] rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
+                    variants={ animationsFramer.dropFromDown }
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                >
+                <div id="toast-danger" class="flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+                    <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <span class="sr-only">Error icon</span>
+                    </div>
+                    <div class="ml-3 text-sm font-normal">{itemToast}</div>
+                    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-danger" aria-label="Close">
+                        <span class="sr-only">Close</span>
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </motion.div>
+        )}
     </>
-)
+)}
 
 export default Error
