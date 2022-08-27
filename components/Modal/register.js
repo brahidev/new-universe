@@ -6,52 +6,40 @@ import {regExpInputs} from '../../utils/regExp'
 import {userRegister} from "../../utils/provider/provider"
 import {animationsFramer} from '../../utils/effectsFramerMotion'
 
-const Modal = ({ handleClose, content }) => {
+const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
     
     const [dataForm, setDataForm] = useState({userName:'', password:'', name:'', age:0, email:''});
-    const [ error, setError ] = useState(false)
-    const [ errorMessage, setErrorMessage ] = useState('')
-
-    useEffect( () => {
-        if ( errorMessage != '' ) {
-            setTimeout(() => {
-                setError(false)
-                setErrorMessage('')
-            }, 2000)
-        }
-    }, [errorMessage])
+    
+    const sendNotification = (message) => {
+        setError(true)
+        setErrorMessage([...[message]])
+        return;
+    }
 
     const sendData = (e) => {
         e.preventDefault();
-        const sendNotification = (message) => {
-            setError(true)
-            setErrorMessage(message)
-            return;
-        }
+        
         if(!regExpInputs.regExpUserName.test(dataForm.userName)){
-            sendNotification('NOMBRE MAL')
+            dataForm.userName == '' ? sendNotification({text:'Usuario vacío',typeToast:"danger"}) : sendNotification({text:'Usuario incorrecto',typeToast:"danger"})
             return;
         }
         if(!regExpInputs.regExpPassword.test(dataForm.password)){
-            sendNotification('CONTRASEÑA MAL')
+            dataForm.password == '' ? sendNotification({text:'Contraseña vacía',typeToast:"danger"}) : sendNotification({text:'Contraseña incorrecta',typeToast:"danger"})
             return;
         }
         if(!regExpInputs.regExpName.test(dataForm.name)){
-            console.log('NOMBRE MAL')
-            sendNotification('CONTRASEÑA MAL')
+            dataForm.name == '' ? sendNotification({text:'Nombre vacío',typeToast:"danger"}) : sendNotification({text:'Nombre incorrecto',typeToast:"danger"})
             return;
         }
         if(!regExpInputs.regExpAge.test(dataForm.age)){
-            console.log('EDAD MAL')
-            sendNotification('CONTRASEÑA MAL')
+            dataForm.age == '' ? sendNotification({text:'Edad vacío',typeToast:"danger"}) : sendNotification({text:'Edad incorrecta',typeToast:"danger"})
             return;
         }
         if(!regExpInputs.regExpEmail.test(dataForm.email)){
-            console.log('EMAIL MAL')
-            sendNotification('CONTRASEÑA MAL')
+            dataForm.email == '' ? sendNotification({text:'Correo vacío',typeToast:"danger"}) : sendNotification({text:'Correo incorrecto',typeToast:"danger"})
             return;
         }
-
+        
         return;
         userRegister(dataForm);
     }
@@ -139,10 +127,6 @@ const Modal = ({ handleClose, content }) => {
                         </button>
                     </div>
                 </form>
-                { error && <Error
-                    message={ errorMessage === '' ? ['Todos los campos son obligatorios 🔐'] : [errorMessage] }
-                />
-                }   
             </motion.div>
         </Backdrop>
     )

@@ -28,41 +28,22 @@ const Login = () => {
         }
     }, [router])
 
+    const sendNotification = (message) => {
+        setError(true)
+        setErrorMessage([...[message]])
+        return;
+    }
+
     const onSubmit = async (e) => {
         e.preventDefault()
-        console.log('Submit')
         if(!regExpInputs.regExpUserName.test(user.user)){
-            setError(true)
-            setErrorMessage([...['NOMBRE MAL']])
+            user.user == '' ? sendNotification({text:'Usuario vacío',typeToast:"danger"}) : sendNotification({text:'Usuario incorrecto',typeToast:"danger"})
             return;
         }
         if(!regExpInputs.regExpPassword.test(user.pass)){
-            setError(true)
-            setErrorMessage([...['CONTRASEÑA MAL']])
+            user.pass == '' ? sendNotification({text:'Contraseña vacía',typeToast:"danger"}) : sendNotification({text:'Contraseña incorrecta',typeToast:"danger"})
             return;
         }
-        return;
-        /*if (user.pass === '' || user.user === '') {
-            setError(true)
-            setErrorMessage('')
-
-            return
-        }
-
-        setError(false)
-        setErrorMessage('')
-        setLoading(true)
-
-        const login = await loginUser(user)
-
-        if (!login.data.status) {
-            setLoading(false)
-            setError(true)
-            setErrorMessage('Usuario o contraseña incorrecto 🔐')
-
-            return
-        }*/
-
         setLoading(false)
         storeLoginCookie()
         router.push('/dashboard')
@@ -81,7 +62,7 @@ const Login = () => {
                     <div className="pb-5">
                         <motion.input
                             type="text"
-                            placeholder="Username"
+                            placeholder="Usuario"
                             className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                             onChange={ (e) => setUser({ user: e.target.value, pass: user.pass }) }
                             whileHover={{ scale: 1.1 }}
@@ -91,7 +72,7 @@ const Login = () => {
                     <div>
                         <motion.input
                             type="password"
-                            placeholder="Password"
+                            placeholder="Contraseña"
                             className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                             onChange={ (e) => setUser({ user: user.user, pass: e.target.value }) }
                             whileHover={{ scale: 1.1 }}
@@ -109,7 +90,7 @@ const Login = () => {
                             whileTap={{ scale: 0.9 }}
                             type="submit"
                         >
-                            Login
+                            Entrar
                         </motion.button>
                     </div>
                     <div>
@@ -119,7 +100,7 @@ const Login = () => {
                             whileTap={{ scale: 0.9 }}
                             onClick={ () => (modalOpen ? close() : open()) }
                         >
-                            Register
+                            Registro
                         </motion.button>
                     </div>
                 </div>
@@ -134,7 +115,7 @@ const Login = () => {
                 exitBeforeEnter={ true }
                 onExitComplete={ () => null }
             >
-                { modalOpen && <Modal modalOpen={ modalOpen } handleClose={ close } /> }
+                { modalOpen && <Modal modalOpen={ modalOpen } setError={setError} setErrorMessage={setErrorMessage} handleClose={ close } /> }
             </AnimatePresence>
         </>
     )
