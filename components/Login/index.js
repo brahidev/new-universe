@@ -17,29 +17,8 @@ const Login = () => {
     const [ listErrorMessage, setErrorMessage ] = useState([])
     const router = useRouter()
 
-<<<<<<< HEAD
-    const close = () => {
-        setError(false)
-        console.log("ES ERROR", isError)
-        setModalOpen(false)
-    }
-    const open = () => {
-        setError(false)
-        console.log("ES ERROR", isError)
-=======
-    const close = (e) => {
-        e.preventDefault()
-
-        setError(false)
-        setModalOpen(false)
-    }
-    const open = (e) => {
-        e.preventDefault()
-
-        setError(false)
->>>>>>> 3db08084d1600940a2d49595387b45d691aa5dfc
-        setModalOpen(true)
-    }
+    const close = () => setModalOpen(false)
+    const open = () => setModalOpen(true)
 
     useEffect( () => {
         const checkLogin = checkLoginCookie()
@@ -119,12 +98,8 @@ const Login = () => {
                             className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-<<<<<<< HEAD
                             onClick={ () => (modalOpen ? close() : open()) }
                             type="button"
-=======
-                            onClick={ (e) => (modalOpen ? close() : open(e)) }
->>>>>>> 3db08084d1600940a2d49595387b45d691aa5dfc
                         >
                             Registro
                         </motion.button>

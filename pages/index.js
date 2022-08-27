@@ -4,13 +4,13 @@ import Home from '../components/Home/'
 
 const Index = () => {
   return (
-    <div className='top-[1rem] right-[1rem] block fixed'>
+    <div className=''>
       <Header
         text="New Universe"
       />
       <HomeMenu />
       <Home />
-    </>
+    </div>
   );
 }
 
