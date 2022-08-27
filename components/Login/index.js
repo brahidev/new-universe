@@ -17,8 +17,16 @@ const Login = () => {
     const [ listErrorMessage, setErrorMessage ] = useState([])
     const router = useRouter()
 
-    const close = () => setModalOpen(false)
-    const open = () => setModalOpen(true)
+    const close = () => {
+        setError(false)
+        console.log("ES ERROR", isError)
+        setModalOpen(false)
+    }
+    const open = () => {
+        setError(false)
+        console.log("ES ERROR", isError)
+        setModalOpen(true)
+    }
 
     useEffect( () => {
         const checkLogin = checkLoginCookie()
@@ -55,15 +63,16 @@ const Login = () => {
 
             <form
                 onSubmit={ onSubmit }
+                className="flex row justify-center"
             >
                 <div
-                    className="flex flex-col"
+                    className="flex flex-row"
                 >
-                    <div className="pb-5">
+                    <div>
                         <motion.input
                             type="text"
                             placeholder="Usuario"
-                            className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
+                            className="p-2 mr-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                             onChange={ (e) => setUser({ user: e.target.value, pass: user.pass }) }
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
@@ -73,7 +82,7 @@ const Login = () => {
                         <motion.input
                             type="password"
                             placeholder="Contraseña"
-                            className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
+                            className="p-2 mr-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                             onChange={ (e) => setUser({ user: user.user, pass: e.target.value }) }
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
@@ -81,7 +90,7 @@ const Login = () => {
                     </div>
                 </div>
                 <div
-                    className="flex flex-row justify-center pt-5"
+                    className="flex flex-row justify-center"
                 >
                     <div className="mr-2">
                         <motion.button
@@ -99,6 +108,7 @@ const Login = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={ () => (modalOpen ? close() : open()) }
+                            type="button"
                         >
                             Registro
                         </motion.button>

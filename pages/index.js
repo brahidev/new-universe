@@ -9,7 +9,7 @@ const Home = () => {
   })
 
   return (
-    <div className='container mx-auto'>
+    <div className='top-[1rem] right-[1rem] block fixed'>
       <Header
         text="New Universe"
       />

@@ -39,8 +39,6 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
             dataForm.email == '' ? sendNotification({text:'Correo vacío',typeToast:"danger"}) : sendNotification({text:'Correo incorrecto',typeToast:"danger"})
             return;
         }
-        
-        return;
         userRegister(dataForm);
     }
 
@@ -58,7 +56,7 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
                     <div className="pb-5">
                         <motion.input
                         type="text"
-                        placeholder="Username"
+                        placeholder="Usuario"
                         className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -68,7 +66,7 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
                     <div className="pb-5">
                         <motion.input
                         type="password"
-                        placeholder="Password"
+                        placeholder="Contraseña"
                         className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -78,7 +76,7 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
                     <div className="pb-5">
                         <motion.input
                         type="text"
-                        placeholder="Name"
+                        placeholder="Nombres"
                         className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -88,7 +86,7 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
                     <div className="pb-5">
                         <motion.input
                         type="number"
-                        placeholder="Age"
+                        placeholder="Edad"
                         className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -98,7 +96,7 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
                     <div className="pb-5">
                         <motion.input
                         type="email"
-                        placeholder="Email"
+                        placeholder="Correo"
                         className="p-2 rounded-xl text-white bg-indigo-700 shadow-lg outline-0 placeholder:italic placeholder:text-white"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -106,25 +104,23 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
                         />
                     </div>
                     <div className="flex flex-row justify-center pt-5">
-                        <button className="mr-2">
-                            <motion.button
-                            className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            >
-                                Send
-                            </motion.button>
-                        </button>
-                        <button>
-                            <motion.button
-                            className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={handleClose}
-                            >
-                                Close
-                            </motion.button>
-                        </button>
+                        <motion.button
+                        className="p-2 w-20 mr-2 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        type="submit"
+                        >
+                            Registrar
+                        </motion.button>
+                        <motion.button
+                        className="p-2 w-20 italic text-center text-white rounded-lg shadow-lg border-solid border-2 border-indigo-700 bg-indigo-700"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={handleClose}
+                        type="button"
+                        >
+                            Cerrar
+                        </motion.button>
                     </div>
                 </form>
             </motion.div>
