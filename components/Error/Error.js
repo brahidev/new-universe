@@ -31,7 +31,7 @@ const Error = ({ listMessages, duration=2000}) => {
         setList([...list]);
     }
 
-return(    
+return(
     <>
         {list.map((itemToast)=>
             itemToast.typeToast == "danger"?

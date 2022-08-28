@@ -11,6 +11,9 @@ module.exports = {
         'zig-zac': "url('https://kirby.nintendo.com/assets/img/zig-zag-border.png')",
       }
     },
+    fontFamily: {
+      'titleExtraBold': ['"Dosis extra bold"']
+    }
   },
   plugins: [],
 }
