@@ -21,15 +21,15 @@ const Principal = () => {
                 <div className="w-[100%] flex mt-[35%] md:mt-[5%] flex-col md:flex-row">
                     <div className="w-[100%] md:w-[40%] flex flex-col justify-center items-center z-10">
                         <span className="text-blue-900 font-bold text-xl">Oficial home of</span>
-                        <motion.div
+                        <motion.img
                             animate={{
                             scale: [1, 1, 0.5, 1, 0.5, 1, 1],
                             rotate: [0, 0, 20, -20, 20, 20, -20, 0],
-                            borderRadius: ["20%", "20%", "50%", "50%", "20%"],
                             }}
                             transition={{ ease: "linear", duration: 2 }}
-                        ><img src={allImages["kirby-logo.png"].default.src}/>
-                        </motion.div>
+                            src={allImages["kirby-logo.png"].default.src}
+                        >
+                        </motion.img>
                     </div>
                     <div className="w-[100%] md:w-[60%] flex mt-[15rem] md:mt-[12rem] relative flex-col items-center z-10">
                         <motion.img
