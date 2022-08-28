@@ -1,6 +1,8 @@
 import {motion, animatePresence} from "framer-motion"
 import Title from "../Title"
+import Separator from "../Separator/Separator"
 import Image from 'next/image'
+import Link from "next/link"
 //import Images from '../../../public/images'
 import { allImages } from "../../../utils/importAllImages"
 import styles from "./sections.module.css"
@@ -20,7 +22,7 @@ const Principal = () => {
                 </div>
                 <div className="w-[100%] flex mt-[35%] md:mt-[5%] flex-col md:flex-row">
                     <div className="w-[100%] md:w-[40%] flex flex-col justify-center items-center z-10">
-                        <span className="text-blue-900 font-bold text-xl">Oficial home of</span>
+                        <span className="text-blue-900 font-bold font-titleExtraBold text-2xl">Oficial home of</span>
                         <motion.img
                             animate={{
                             scale: [1, 1, 0.5, 1, 0.5, 1, 1],
@@ -68,14 +70,14 @@ const Principal = () => {
                     </div>
                 </div>
             </div>
-            <div className="relative bg-zig-zac z-50 bg-inherit pt-8 my-[-1rem]">
-
-            </div>
-            <div className="bg-anniversaryKirby bg-no-repeat bg-inherit h-auto pb-16">
-                <div className="flex justify-center pt-36 mb-[-2rem] z-1">
+            <Separator
+                position="relative z-50 bg-inherit pt-8 my-[-1rem]"
+            />
+            <div className="flex flex-col md:flex-row md:pl-24 md:pr-24 md:pt-20 bg-anniversaryKirby bg-no-repeat bg-inherit h-auto pb-16">
+                <div className="flex justify-center md:relative md:left-12 md:justify-start md:pt-0 md:mb-10 pt-36 mb-[-2rem] z-10">
                     <img src="https://kirby.nintendo.com/assets/img/kirby_30.png" width="300" height="300" alt="New universe logo" />
                 </div>
-                <div className="bg-white pt-5 mr-5 ml-5 rounded-2xl z-0">
+                <div className="bg-white md:flex md:h-[15rem] md:mt-10 md:items-center md:align-middle md:pt-0 mb-0 pt-5 mr-5 ml-5 rounded-2xl z-0">
                     <div className="ml-10 mr-10 text-center text-blue-900 text-lg pb-5 md:hover:text-blue-900 md:p-0">
                         <Title
                             title="30 years of Kirby! "
@@ -86,9 +88,9 @@ const Principal = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-zig-zac bg-inherit pt-8 my-[-1rem]">
-
-            </div>
+            <Separator
+                position="bg-inherit pt-8 my-[-1rem]"
+            />
         </>
     )
 }
