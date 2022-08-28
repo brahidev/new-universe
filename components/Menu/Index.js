@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import React from 'react'
+import { allImages } from "../../utils/importAllImages"
 import imgLogoTitle from '../../public/images/NewUniverseLogo.png'
 import styles from './menu.module.css'
 import { useState } from "react";
@@ -14,22 +16,27 @@ const Menu = () => {
     return (
         <>
             <div className={styles.titlePage}>
-                <div className={styles.titleLogo}>
-                    <Image 
-                        src={imgLogoTitle}
-                        alt="New universe"
-                        width={150}
-                        height={150}
-                    />
-                </div>
+                <motion.img 
+                    animate={{
+                        rotate: 45
+                    }}
+                    transition={{ ease: "linear", duration: 0, repeat: Infinity }}
+                    src={allImages['NewUniverseLogo45.png'].default.src}
+                    style={{
+                        width: 150,
+                        height: 150
+                    }}
+                    className={styles.titleLogo}
+                    
+                />
                 <span className={styles.titleText}>Welcome to new universe</span>
             </div>
             <div className={ styles.window }>
                 <nav className={ styles.nav }>
-                    <ul className={ styles.ul }>
+                    <ul className={ styles.ulMenu }>
                         {tabs.map((item) => (
                             <motion.li 
-                                className={`w-4/5 relative cursor-pointer h-6 flex justify-between items-center min-w-0 select-none mb-4 ${styles.itemMenuText} ${ styles.li } ${ item === selectedTab ? "selected" : "" }`}
+                                className={`w-4/5 relative cursor-pointer h-6 flex justify-between items-center min-w-0 select-none mb-4 ${styles.itemMenuText} ${ styles.liMenu } ${ item === selectedTab ? "selected" : "" }`}
                                 // layoutId="underline"
                                 whileHover={{ scale: 1.1}}
                                 whileTap={{ scale: 0.9 }}

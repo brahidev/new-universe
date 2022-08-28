@@ -23,6 +23,15 @@
   src: url("../public/fonts/Lato_Regular.woff") format('woff');
 }
 
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
 html,
 body {
   padding: 0;
@@ -104,4 +113,8 @@ body.dashboard {
   border-radius: 15px;
   z-index: 0;
   background-color: rgba(0, 0, 0, 0.334);
+}
+
+.backgroundSpiral{
+  animation: rotating 20s linear infinite;
 }
