@@ -16,7 +16,7 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
         return;
     }
 
-    const sendData = (e) => {
+    const sendData = async(e) => {
         e.preventDefault();
         
         if(!regExpInputs.regExpUserName.test(dataForm.userName)){
@@ -38,8 +38,20 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
         if(!regExpInputs.regExpEmail.test(dataForm.email)){
             dataForm.email == '' ? sendNotification({text:'Correo vacío',typeToast:"danger"}) : sendNotification({text:'Correo incorrecto',typeToast:"danger"})
             return;
+        }        
+        let registerData = await userRegister(dataForm);
+        if(registerData.status === true){
+            sendNotification({text:'Registro completado',typeToast:"sucess"})
+            handleClose()
+        }else if(registerData.status === false){
+            if(registerData.message.indexOf('registrado') > -1){
+                sendNotification({text:'Usuario ya se encuentra registrado',typeToast:"warning"})
+                return;
+            }else{
+                sendNotification({text:'Error inesperado',typeToast:"warning"})
+                return;
+            }
         }
-        userRegister(dataForm);
     }
 
     return (

@@ -12,18 +12,7 @@ const userRegister = async(dataForm) =>{
         body: JSON.stringify(body),
         headers: {'Content-Type': 'application/json'}
     })
-    let dataResponse = await response.json();
-    switch (dataResponse.status){
-        case(201):
-            console.log('Fetch correct and registry data.')
-        break;
-        case(200):
-            console.log('Fetch correct but no registry data.')
-        break;
-        default:
-            console.log(`Error! impossible to resolve the request. ${dataResponse}`)
-        break;
-    }
+    return await response.json();
 }
 
 const loginUser = async (user) =>{
