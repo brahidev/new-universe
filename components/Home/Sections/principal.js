@@ -1,8 +1,7 @@
 import {motion, animatePresence} from "framer-motion"
 import Title from "../Title"
+import News from "./news"
 import Separator from "../Separator/Separator"
-import Image from 'next/image'
-import Link from "next/link"
 //import Images from '../../../public/images'
 import { allImages } from "../../../utils/importAllImages"
 import styles from "./sections.module.css"
@@ -89,8 +88,9 @@ const Principal = () => {
                 </div>
             </div>
             <Separator
-                position="bg-inherit pt-8 my-[-1rem]"
+                position="relative bg-inherit z-50 pt-8 my-[-1rem]"
             />
+            <News />
         </>
     )
 }

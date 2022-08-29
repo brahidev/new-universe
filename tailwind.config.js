@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'anniversaryKirby': "url('https://kirby.nintendo.com/assets/img/anniversary-bg.jpg')",
+        'newsFeed': "url('https://kirby.nintendo.com/assets/img/star-gradient-bg.jpg')",
         'zig-zac': "url('https://kirby.nintendo.com/assets/img/zig-zag-border.png')",
       }
     },

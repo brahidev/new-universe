@@ -11,7 +11,7 @@ const HomeMenu = () => {
     const [ dropdown, setDropdown ] = useState(false)
 
     return (
-        <nav className="fixed top-0 w-[100vw] border-gray-200 px-2 bg-white/70 md:px-4 py-2.5 md:bg-white/70 z-20">
+        <nav className="fixed top-0 w-[100vw] border-gray-200 px-2 bg-white/70 md:px-4 py-2.5 md:bg-white/70 z-[60]">
             <div className="flex flex-wrap justify-between items-center mx-auto md:justify-center">
                 <Link href="/" >
                     <a className="flex items-center md:hidden">
