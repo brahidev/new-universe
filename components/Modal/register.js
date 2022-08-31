@@ -58,7 +58,7 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
         <Backdrop onclick={ handleClose }>
             <motion.div
                 onClick={ (e) => e.stopPropagation() }
-                className="w-1/3 h-auto m-auto p-10 rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
+                className="h-auto m-auto p-10 rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
                 variants={ animationsFramer.dropFromUp }
                 initial="hidden"
                 animate="visible"

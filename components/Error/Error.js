@@ -37,7 +37,7 @@ return(
             itemToast.typeToast == "danger"?
             <motion.div
                     onClick={ (e) => e.stopPropagation() }
-                    className="w-56 fixed p-0 h-16 top-[80vh] right-[5vw] rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
+                    className="w-56 z-50 fixed p-0 h-16 top-[80vh] right-[5vw] rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
                     variants={ animationsFramer.dropFromDown }
                     initial="hidden"
                     animate="visible"
@@ -54,7 +54,7 @@ return(
             : itemToast.typeToast == "warning"?
                 <motion.div
                     onClick={ (e) => e.stopPropagation() }
-                    className="w-56 fixed p-0 h-16 top-[80vh] right-[5vw] rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
+                    className="w-56 z-50 fixed p-0 h-16 top-[80vh] right-[5vw] rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
                     variants={ animationsFramer.dropFromDown }
                     initial="hidden"
                     animate="visible"
@@ -71,7 +71,7 @@ return(
             : itemToast.typeToast == "sucess" ?
                 <motion.div
                     onClick={ (e) => e.stopPropagation() }
-                    className="w-56 fixed p-0 h-16 top-[80vh] right-[5vw] rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
+                    className="w-56 z-50 fixed p-0 h-16 top-[80vh] right-[5vw] rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-neutral-200"
                     variants={ animationsFramer.dropFromDown }
                     initial="hidden"
                     animate="visible"

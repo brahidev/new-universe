@@ -54,10 +54,10 @@ const Login = () => {
 
             <form
                 onSubmit={ onSubmit }
-                className="flex row justify-center"
+                className="flex md:flex-row items-center flex-col justify-center"
             >
                 <div
-                    className="flex flex-row"
+                    className="flex md:flex-row flex-col"
                 >
                     <div>
                         <motion.input
@@ -69,7 +69,7 @@ const Login = () => {
                             whileTap={{ scale: 0.9 }}
                         />
                     </div>
-                    <div>
+                    <div className="md:my-0 my-[1rem]">
                         <motion.input
                             type="password"
                             placeholder="Contraseña"

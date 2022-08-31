@@ -76,7 +76,7 @@ const HomeMenu = () => {
                                     whileHover={{ background: 'rgb(67 56 202 / var(--tw-text-opacity))', border: '2px solid #fff', color:'#fff' }}
                                     whileTap={{ scale: 0.9 }}
                                     className={`p-2 w-20 italic text-center font-bold text-indigo-700 rounded-lg shadow-lg border-solid border-2 border-indigo-700`}
-                                >LOGIN / REGISTRO</motion.button>
+                                >Login / Registro</motion.button>
                             </Link>
                         </>
                         :null
@@ -109,6 +109,25 @@ const HomeMenu = () => {
                                 </a>
                             </Link>
                         </li>
+                        {dropdown?
+                            <motion.li 
+                                className="py-1"
+                                animate={{
+                                    scale:[1,0.95,1]
+                                }}
+                                transition={{ ease: "linear", duration: 3, repeat: Infinity }}
+                                style={{
+                                    height: '3rem'
+                                }}
+                            >
+                                <Link href="/login" >
+                                    <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
+                                        <span className="text-2xl"> Login / Registro </span>
+                                    </a>
+                                </Link>
+                            </motion.li>
+                            :null
+                        }
                     </ul>
                 </div>
             </div>
