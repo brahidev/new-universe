@@ -21,7 +21,7 @@ const HomeMenu = () => {
                             }}
                             transition={{ ease: "linear", duration: 3, repeat: Infinity }}
                             src={allImages['NewUniverseLogo.png'].default.src}
-                            style={{                     
+                            style={{
                                 width: '5rem',
                                 height: '5rem',
                                 left: '1rem',
@@ -53,7 +53,7 @@ const HomeMenu = () => {
                                     }}
                                     transition={{ ease: "linear", duration: 3, repeat: Infinity }}
                                     src={allImages['NewUniverseLogo.png'].default.src}
-                                    style={{                     
+                                    style={{
                                         width: '5rem',
                                         height: '5rem',
                                         left: '1rem',
@@ -67,7 +67,7 @@ const HomeMenu = () => {
                                         scale:[1,0.95,1]
                                     }}
                                     transition={{ ease: "linear", duration: 3, repeat: Infinity }}
-                                    style={{                     
+                                    style={{
                                         width: '10rem',
                                         height: '3rem',
                                         right: '1rem',

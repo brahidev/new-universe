@@ -13,7 +13,9 @@ module.exports = {
       }
     },
     fontFamily: {
-      'titleExtraBold': ['"Dosis extra bold"']
+      'titleExtraBold': ['"Dosis extra bold"'],
+      'titleBold': ['"Dosis bold"'],
+      'titleLato': ['"Lato"']
     }
   },
   plugins: [],
