@@ -37,6 +37,16 @@
   }
 }
 
+@keyframes cloudAnimation{
+  from {
+      transform: translateX(-1955px);
+  }
+
+  to {
+      transform: translateX(0px);
+  }
+}
+
 html,
 body {
   padding: 0;
@@ -196,4 +206,12 @@ body.dashboard {
   box-shadow: 0 0 6px 6px #CCFFFD;
   outline: 2px dashed #1423A5;
   outline-offset: 2px;
+}
+
+.cloudAnimation{
+  animation: cloudAnimation 60s linear infinite;
+  content: '';
+  height: 217px;
+  width: 9775px;
+  overflow-x: hidden;
 }
