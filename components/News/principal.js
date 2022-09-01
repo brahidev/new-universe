@@ -1,14 +1,9 @@
-import {motion, animatePresence} from "framer-motion"
-import Link from 'next/link'
-import Title from "../Title"
-import News from "./News/news"
-import YoutubeEmbed from "./News/youtube"
-import Separator from "../../Separator/Separator"
-//import Images from '../../../public/images'
-import { allImages } from "../../../utils/importAllImages"
 import styles from "./sections.module.css"
+import { allImages } from "../../utils/importAllImages"
 
-const Principal = ({ feeds = [] }) => {
+import { motion } from "framer-motion"
+
+const PrincipalNews = () => {
     return (
         <>
             <div className={`flex min-h-[650px] relative flex-row justify-center overflow-hidden`}>
@@ -23,15 +18,9 @@ const Principal = ({ feeds = [] }) => {
                 </div>
                 <div className="w-[100%] flex mt-[35%] md:mt-[5%] flex-col md:flex-row">
                     <div className="w-[100%] md:w-[40%] md:px-[5%] flex flex-col justify-center items-center z-10">
-                        <span className="text-blue-900 font-bold font-titleExtraBold text-3xl">New Universe Plataform</span>
+                        <span className="text-blue-900 font-bold font-titleExtraBold text-3xl">News</span>
                         <span className="text-blue-900 text-center mt-[1rem] font-bold font-titleNormal text-2xl">
-                            The New Universe Plataform allows to make very easy for people of all 
-                            ages to quickly create and share games in the platform as easy as any 
-                            social network.
-                        </span>
-                        <span className="text-blue-900 text-center mt-[1rem] font-bold font-titleNormal text-2xl">
-                            When others play the games the creators receive direct payment without 
-                            an intermediary thanks to the new Web monetization system we use.
+                            Check out all the latest news about New Universe!
                         </span>
                     </div>
                     <div className="w-[100%] md:w-[60%] flex mt-[15rem] md:mt-[12rem] relative flex-col items-center z-10">
@@ -106,75 +95,8 @@ const Principal = ({ feeds = [] }) => {
                     </div>
                 </div>
             </div>
-            <Separator
-                position="relative z-50 bg-inherit pt-8 my-[-1rem]"
-            />
-            <div className="flex flex-col md:flex-row md:justify-center md:pl-24 md:pr-24 md:pt-[5rem] md:pb-[8rem] bg-sky bg-no-repeat bg-inherit h-auto pb-16">
-                <div className="flex justify-center md:relative md:left-12 md:justify-start md:pt-0 md:mb-10 pt-36 mb-[-2rem] z-10">
-                    <motion.img
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 2 }}
-                        width="100%"
-                        className=" min-w-[315px]"
-                        src={allImages['chikenbear.png'].default.src} 
-                    />
-                </div>
-                <div className="bg-white md:flex md:h-[min-content] md:mt-10 md:items-center md:align-middle md:pt-0 mb-0 flex-col pt-5 mr-5 ml-5 rounded-2xl z-0">
-                    <div className="ml-10 mr-10 text-center mt-[2rem] text-blue-900 text-lg pb-5 md:hover:text-blue-900 md:p-0">
-                        <span className="text-blue-900 font-['Sniglet'] text-3xl">
-                            New Universe Plataform
-                        </span>
-                        <p className="text-blue-900 text-center mt-[1rem] mx-[15%] font-bold font-titleNormal text-2xl">
-                            Allows you to create and enjoy making your games without programming. 
-                            And you can also earn money for you creations using the new web monetización system.
-                            Be part of our beta tester program.
-                        </p>
-                    </div>
-                    <motion.a
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ duration: 0.1 }}
-                        className="btnRed"
-                    >
-                        <span>
-                            Sign Up Here
-                        </span>
-                    </motion.a>
-                </div>
-            </div>
-            <Separator
-                position="relative bg-inherit z-50 pt-8 my-[-1rem]"
-            />
-            <News
-                feeds={ feeds }
-            />
-            <Separator
-                position="relative bg-inherit z-50 pt-8 my-[-1rem]"
-            />
-            <div className="bg-[#ffec40] w-[100%]">
-                <div className="w-[100%] bg-stars-white flex flex-col items-center">
-                    <YoutubeEmbed embedId="rokGy0huYEA" />
-                    <span className="text-blue-900 font-['Sniglet'] text-3xl">
-                        New Universe Plataform
-                    </span>
-                    <span className="text-blue-900 text-center mt-[1rem] mb-[2rem] mx-[15%] font-bold font-titleNormal text-1xl">
-                        Join New Universe an unforgettable experience creating your games!
-                    </span>
-                </div>
-            </div>
-            <Separator
-                position="relative bg-inherit z-50 pt-8 my-[-1rem]"
-            />
-            <div className="h-[4.4rem] bg-gradient-to-b from-[#FCD555] to-[#FFAE29] overflow-hidden">
-                <div className="w-[100%] h-[100%] bg-red-footprint bg-contain opacity-70">
-                </div>
-                <div className="h-[4.4rem] bg-footer-bg bg-contain bg-repeat mt-[-3rem] z-50 cloudAnimation">
-                </div>
-            </div>
-            
         </>
     )
 }
 
-export default Principal
+export default PrincipalNews
