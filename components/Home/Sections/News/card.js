@@ -10,17 +10,13 @@ const Card = ({ date, description, image }) => (
         className="flex flex-col bg-white m-5 p-5 rounded-lg md:w-[20%]"
     >
         <div>
-            <Link href="/news">
-                <a>
-                    <Image
-                        src={ image }
-                        alt="Picture of the author"
-                        width={400}
-                        height={200}
-                        style={{ borderRadius: '0.5rem' }}
-                    />
-                </a>
-            </Link>
+            <Image
+                src={ image }
+                alt="Picture of the author"
+                width={400}
+                height={200}
+                style={{ borderRadius: '0.5rem' }}
+            />
         </div>
         <div className="text-left text-xs mt-3 text-blue-900 font-titleLato">
             <p>
@@ -30,11 +26,9 @@ const Card = ({ date, description, image }) => (
             </p>
         </div>
         <div className="mt-3 text-left text-blue-900 font-titleBold">
-            <Link href="/news">
-                <a>
-                    { description }
-                </a>
-            </Link>
+            <a>
+                { description }
+            </a>
         </div>
     </motion.div>
 )
