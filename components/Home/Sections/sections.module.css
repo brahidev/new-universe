@@ -39,14 +39,14 @@
 
 .kirby {
     position: absolute;
-    top: -8rem;
-    left: 16.5rem;
+    top: 2rem;
+    left: 18rem;
     z-index: 1;
 }
 
 .metaknight {
     position: absolute;
-    top: -14rem;
+    top: -8rem;
     left: 30rem;
 }
 
@@ -58,8 +58,8 @@
 
 .waddledee {
     position: absolute;
-    top: -11rem;
-    left: 6rem;
+    top: -5rem;
+    left: 12rem;
 }
 
 @media (max-width: 768px) {

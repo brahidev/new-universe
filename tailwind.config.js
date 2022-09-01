@@ -15,6 +15,7 @@ module.exports = {
     fontFamily: {
       'titleExtraBold': ['"Dosis extra bold"'],
       'titleBold': ['"Dosis bold"'],
+      'titleNormal': ['"Dosis"'],
       'titleLato': ['"Lato"']
     }
   },
