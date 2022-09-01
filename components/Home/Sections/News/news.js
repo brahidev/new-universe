@@ -4,9 +4,7 @@ import Card from "./card"
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-const News = ({ feeds }) => {
-    console.log('Feeds in component News', feeds)
-
+const News = ({ feeds, button = true }) => {
     return (
         <div className="flex flex-col md:pl-24 md:pr-24 md:pt-20 bg-newsFeed bg-cover bg-no-repeat bg-inherit h-auto pb-16">
             <div>
@@ -30,17 +28,27 @@ const News = ({ feeds }) => {
                     })
                 }
             </div>
-            <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-center m-5"
-            >
-                <Link href="/news">
-                        <a className="p-3 pl-[5rem] pr-[5rem] w-[90%] bg-gradient-to-r from-blue-600 to-blue-700 border-2 font-titleExtraBold border-blue-900 text-white rounded-full">
-                            See More
-                        </a>
-                </Link>
-            </motion.div>
+            {
+            button ??
+                <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="flex justify-center items-center m-5"
+                >
+                    <Link href="/news">
+                        <motion.a
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            transition={{ duration: 0.1 }}
+                            className="btnBlue"
+                        >
+                                <span>
+                                    See More
+                                </span>
+                        </motion.a>
+                    </Link>
+                </motion.div>
+            }
         </div>
     )
 }
