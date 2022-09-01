@@ -150,10 +150,27 @@ const Principal = () => {
             <Separator
                 position="relative bg-inherit z-50 pt-8 my-[-1rem]"
             />
-            <div className="App">
-            <h1>Youtube Embed</h1>
-            <YoutubeEmbed embedId="rokGy0huYEA" />
+            <div className="bg-[#ffec40] w-[100%]">
+                <div className="w-[100%] bg-stars-white flex flex-col items-center">
+                    <YoutubeEmbed embedId="rokGy0huYEA" />
+                    <span className="text-blue-900 font-['Sniglet'] text-3xl">
+                        New Universe Plataform
+                    </span>
+                    <span className="text-blue-900 text-center mt-[1rem] mb-[2rem] mx-[15%] font-bold font-titleNormal text-1xl">
+                        Join New Universe an unforgettable experience creating your games!
+                    </span>
+                </div>
             </div>
+            <Separator
+                position="relative bg-inherit z-50 pt-8 my-[-1rem]"
+            />
+            <div className="h-[4.4rem] bg-gradient-to-b from-[#FCD555] to-[#FFAE29] overflow-hidden">
+                <div className="w-[100%] h-[100%] bg-red-footprint bg-contain opacity-70">
+                </div>
+                <div className="h-[4.4rem] bg-footer-bg bg-contain bg-repeat mt-[-3rem] z-50 cloudAnimation">
+                </div>
+            </div>
+            
         </>
     )
 }
