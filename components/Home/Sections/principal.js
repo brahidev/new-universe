@@ -6,7 +6,7 @@ import Separator from "../Separator/Separator"
 import { allImages } from "../../../utils/importAllImages"
 import styles from "./sections.module.css"
 
-const Principal = () => {
+const Principal = ({ feeds }) => {
     return (
         <>
             <div className={`flex min-h-[650px] relative flex-row justify-center overflow-hidden`}>
@@ -133,7 +133,9 @@ const Principal = () => {
             <Separator
                 position="relative bg-inherit z-50 pt-8 my-[-1rem]"
             />
-            <News />
+            <News
+                feeds={ feeds }
+            />
             <Separator
                 position="relative bg-inherit z-50 pt-8 my-[-1rem]"
             />

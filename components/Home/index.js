@@ -1,8 +1,10 @@
 import Principal from "./Sections/principal"
 
-const Home = () => {
+const Home = ({ feeds }) => {
     return (
-        <Principal />
+        <Principal
+            feeds={ feeds }
+        />
     )
 }
 
