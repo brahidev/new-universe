@@ -19,6 +19,11 @@
 }
 
 @font-face {
+  font-family: "Sniglet";
+  src: url("../public/fonts/Sniglet.ttf") format('truetype');
+}
+
+@font-face {
   font-family: "Lato";
   src: url("../public/fonts/Lato_Regular.woff") format('woff');
 }
@@ -121,4 +126,74 @@ body.dashboard {
 
 .backgroundSpiral{
   animation: rotating 20s linear infinite;
+}
+
+.btnRed{
+  font-family: "Dosis", "Open sans", "Helvetica", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.375rem;
+  border-radius: 25px;
+  display: block;
+  overflow: hidden;
+  padding: 2px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  border: solid 3px transparent;
+  z-index: 1;
+  border-color: #B11A45;
+  cursor: pointer;
+  margin-block: 1rem;
+}
+
+.btnRed::after{
+  background: #cc3b5b;
+  content: "";
+  border-radius: 0 0 3em 3em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+}
+
+.btnRed::before{
+  background: #f5637e;
+  content: "";
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.btnRed span{
+  background: #C72549;
+  text-shadow: 0 2px rgb(0 0 0 / 20%);
+  display: block;
+  position: relative;
+  z-index: 2;
+  padding: 4px 4rem;
+  border-radius: 25px;
+}
+
+.btnRed span::before{
+  background-color: rgba(255,255,255,0.1);
+  content: "";
+  height: 55px;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 40%;
+  z-index: 1;
+}
+
+#wrap *:focus {
+  box-shadow: 0 0 6px 6px #CCFFFD;
+  outline: 2px dashed #1423A5;
+  outline-offset: 2px;
 }
