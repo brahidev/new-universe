@@ -27,7 +27,7 @@ const NewsPage = ({ feeds }) => {
 
 export async function getServerSideProps() {
     // Fetch data
-    const URL = 'http://localhost:3000/api/feeds'
+    const URL = `${ process.env.HOST }/api/feeds`
     const feed = await fetch(URL)
     const feedJSON = await feed.json()
 
