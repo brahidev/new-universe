@@ -245,7 +245,7 @@ body.dashboard {
   z-index: 1;
 }
 
-.btnBlue span{
+.btnBlue span {
   background: #2457e4;
   text-shadow: 0 2px rgb(0 0 0 / 20%);
   display: block;
@@ -253,6 +253,27 @@ body.dashboard {
   z-index: 2;
   padding: 4px 4rem;
   border-radius: 25px;
+}
+
+.btnBlue p {
+  background: #2457e4;
+  text-shadow: 0 2px rgb(0 0 0 / 20%);
+  display: block;
+  position: relative;
+  z-index: 2;
+  border-radius: 25px;
+}
+
+.btnBlue p::before{
+  background-color: rgba(255,255,255,0.1);
+  content: "";
+  height: 55px;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 40%;
+  z-index: 1;
 }
 
 .btnBlue span::before{

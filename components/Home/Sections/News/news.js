@@ -23,6 +23,7 @@ const News = ({ feeds, button = true }) => {
                                 date={ date }
                                 description={ description }
                                 image={ image_url }
+                                button={ button }
                             />
                         )
                     })
