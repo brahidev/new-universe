@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { allImages } from "../../utils/importAllImages"
 import imgLogoTitle from '../../public/images/NewUniverseLogo.png'
 import Error from '../Error/Error';
@@ -11,11 +12,20 @@ import Profile from "../MainItems/Profile";
 import Categorias from "../MainItems/Categorias";
 import Juegos from "../MainItems/Juegos";
 import Noticias from "../MainItems/Noticias";
+import { checkLoginCookie } from '../../utils/cookies'
 
 const Menu = () => {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
     const [ isError, setError ] = useState(false)
     const [ listErrorMessage, setErrorMessage ] = useState([])
+    const router = useRouter()
+
+    useEffect( () => {
+        const checkLogin = checkLoginCookie()
+        if (!checkLogin) {
+            router.push('/login')
+        }
+    }, [router])
 
     return (
         <>
