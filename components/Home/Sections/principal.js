@@ -175,11 +175,10 @@ const Principal = ({ feeds = [] }) => {
                 <div className="w-[100%] block text-center absolute bg-[#f6f7ff] z-50">
                     <p>Creators</p>
                     <p>© New Universe Team</p>
-                    <p>Game trademarks and copyrights are properties of their respective owners. New Universe Team. © <span class="cpdate">2022</span> New Universer.</p>
+                    <p>Game trademarks and copyrights are properties of their respective owners. New Universe Team. © <span className="cpdate">2022</span> New Universer.</p>
                     <br/>
                 </div>
             </div>
-            
         </>
     )
 }
