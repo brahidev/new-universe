@@ -75,11 +75,9 @@ const Profile = ({setError, setErrorMessage})=>{
     useEffect(() => {
         const fetchData = async () => {
             const data = await getUser('prueba');
-            console.log('DTAA',data);
             if(data?.data?.status){
                 const dataUser = JSON.parse(data.data.data[0].json)
                 const username = dataUser.username
-                console.log('USERNAME',username)
                 setDataForm({userName:username, password:dataForm.password, name:dataForm.name, age:dataForm.age, email:dataForm.email})
             }
         }
@@ -107,8 +105,8 @@ const Profile = ({setError, setErrorMessage})=>{
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onChange={(e)=> setDataForm({userName:e.target.value, password:dataForm.password, name:dataForm.name, age:dataForm.age, email:dataForm.email}) }
-                            readonly={console.log('USER',dataForm.userName)}
-                            defaultValue={console.log('USER',dataForm.userName)}
+                            readonly='readonly'
+                            defaultValue={dataForm.userName.length > 0? dataForm.userName : ''}
                             />
                         </div>
                         <div className="pb-5">
