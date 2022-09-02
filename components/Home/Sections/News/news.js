@@ -23,13 +23,14 @@ const News = ({ feeds, button = true }) => {
                                 date={ date }
                                 description={ description }
                                 image={ image_url }
+                                button={ button }
                             />
                         )
                     })
                 }
             </div>
             {
-            button ??
+            button ?
                 <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -48,6 +49,7 @@ const News = ({ feeds, button = true }) => {
                         </motion.a>
                     </Link>
                 </motion.div>
+                : null
             }
         </div>
     )

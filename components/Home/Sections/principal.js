@@ -148,6 +148,7 @@ const Principal = ({ feeds = [] }) => {
             />
             <News
                 feeds={ feeds }
+                button={ true }
             />
             <Separator
                 position="relative bg-inherit z-50 pt-8 my-[-1rem]"
