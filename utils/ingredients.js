@@ -1,11 +1,12 @@
 export const allIngredients = [
-    { icon: "🤖👽👿💀", label: "Categories" , id: 1},
-    { icon: "🎯🎳🎮🕹️", label: "Games", id: 2}, 
-    { icon: "📰🗞️📻🎙️", label: "News", id: 3},
+    { icon: "", label: "Profile" , id: 1},
+    { icon: "", label: "Categories" , id: 2},
+    { icon: "", label: "Games", id: 3}, 
+    { icon: "", label: "News", id: 4}
 ];
 
-const [tomato, lettuce, cheese] = allIngredients;
-export const initialTabs = [tomato, lettuce, cheese];
+const [profile, categories, games, news] = allIngredients;
+export const initialTabs = [profile, categories, games, news];
 
 export function getNextIngredient(ingredients) {
     const existing = new Set(ingredients);

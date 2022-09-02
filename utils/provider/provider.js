@@ -15,6 +15,16 @@ const userRegister = async(dataForm) =>{
     return await response.json();
 }
 
+const getUser = async(name) =>{
+    if(typeof name !== 'string' || !name) return false;
+    const response = await fetch(`/api/user/${name}`,{
+        method: 'GET',
+        headers: new Headers(),
+        redirect: 'follow'
+    })
+    return await response.json();
+}
+
 const loginUser = async (user) =>{
     const url = "/api/user/login"
     const data = await fetch(url, {
@@ -33,5 +43,6 @@ const loginUser = async (user) =>{
 
 export {
     userRegister,
+    getUser,
     loginUser
 };

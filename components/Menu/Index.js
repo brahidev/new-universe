@@ -2,17 +2,21 @@ import Image from 'next/image'
 import React from 'react'
 import { allImages } from "../../utils/importAllImages"
 import imgLogoTitle from '../../public/images/NewUniverseLogo.png'
+import Error from '../Error/Error';
 import styles from './menu.module.css'
 import { useState } from "react";
 import { initialTabs as tabs } from "../../utils/ingredients";
 import { motion, AnimatePresence } from "framer-motion";
+import Profile from "../MainItems/Profile";
 import Categorias from "../MainItems/Categorias";
 import Juegos from "../MainItems/Juegos";
 import Noticias from "../MainItems/Noticias";
 
 const Menu = () => {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
-    console.log("ITEM_SELECT",selectedTab)
+    const [ isError, setError ] = useState(false)
+    const [ listErrorMessage, setErrorMessage ] = useState([])
+
     return (
         <>
             <div className={styles.titlePage}>
@@ -23,11 +27,10 @@ const Menu = () => {
                     transition={{ ease: "linear", duration: 0, repeat: Infinity }}
                     src={allImages['NewUniverseLogo45.png'].default.src}
                     style={{
-                        width: 150,
-                        height: 150
+                        width: '6rem',
+                        height: '6rem'
                     }}
                     className={styles.titleLogo}
-                    
                 />
                 <span className={styles.titleText}>Welcome to new universe</span>
             </div>
@@ -60,12 +63,18 @@ const Menu = () => {
                         whileHover={{ scale: 1,background: "radial-gradient(circle, rgba(89,98,196,1) 0%, rgba(178,104,247,1) 62%)" }}
                     >
                     {selectedTab ? 
-                        selectedTab.id == 1? <Categorias/>:
-                        selectedTab.id == 2? <Juegos/>:
-                        selectedTab.id == 3? <Noticias/>:"⛔"
+                        selectedTab.id == 1? <Profile setError={setError} setErrorMessage={setErrorMessage}/>:
+                        selectedTab.id == 2? <Categorias/>:
+                        selectedTab.id == 3? <Juegos/>:
+                        selectedTab.id == 4? <Noticias/>:"⛔"
                     : "🚫"}
                 </motion.main>
             </div>
+            {isError &&
+                <Error
+                    listMessages={ listErrorMessage.length === 0 ? ['Todos los campos son obligatorios 🔐'] : listErrorMessage }
+                />
+            }
         </>
     )
 }

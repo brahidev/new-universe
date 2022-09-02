@@ -110,7 +110,7 @@ const Principal = ({ feeds = [] }) => {
                 position="relative z-50 bg-inherit pt-8 my-[-1rem]"
             />
             <div className="flex flex-col md:flex-row md:justify-center md:pl-24 md:pr-24 md:pt-[5rem] md:pb-[8rem] bg-sky bg-no-repeat bg-inherit h-auto pb-16">
-                <div className="flex justify-center md:relative md:left-12 md:justify-start md:pt-0 md:mb-10 pt-36 mb-[-2rem] z-10">
+                <div className="flex justify-center md:relative md:left-12 md:justify-start md:pt-0 md:mb-10 pt-[5%] mb-[-2rem] z-10">
                     <motion.img
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -154,8 +154,8 @@ const Principal = ({ feeds = [] }) => {
             />
             <div className="bg-[#ffec40] w-[100%]">
                 <div className="w-[100%] bg-stars-white flex flex-col items-center">
-                    <YoutubeEmbed embedId="rokGy0huYEA" />
-                    <span className="text-blue-900 font-['Sniglet'] text-3xl">
+                    <YoutubeEmbed embedId="D_NBJANJNPk" />
+                    <span className="text-blue-900 font-['Sniglet'] text-center text-3xl">
                         New Universe Plataform
                     </span>
                     <span className="text-blue-900 text-center mt-[1rem] mb-[2rem] mx-[15%] font-bold font-titleNormal text-1xl">
@@ -169,7 +169,13 @@ const Principal = ({ feeds = [] }) => {
             <div className="h-[4.4rem] bg-gradient-to-b from-[#FCD555] to-[#FFAE29] overflow-hidden">
                 <div className="w-[100%] h-[100%] bg-red-footprint bg-contain opacity-70">
                 </div>
-                <div className="h-[4.4rem] bg-footer-bg bg-contain bg-repeat mt-[-3rem] z-50 cloudAnimation">
+                <div className="h-[2rem] bg-footer-bg bg-contain bg-repeat mt-[-3rem] z-40 cloudAnimation">
+                </div>
+                <div className="w-[100%] block text-center absolute bg-[#f6f7ff] z-50">
+                    <p>Creators</p>
+                    <p>© New Universe Team</p>
+                    <p>Game trademarks and copyrights are properties of their respective owners. New Universe Team. © <span class="cpdate">2022</span> New Universer.</p>
+                    <br/>
                 </div>
             </div>
             

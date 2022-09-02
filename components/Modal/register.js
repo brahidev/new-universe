@@ -9,12 +9,6 @@ import {animationsFramer} from '../../utils/effectsFramerMotion'
 const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
     
     const [dataForm, setDataForm] = useState({userName:'', password:'', name:'', age:0, email:''});
-    
-    const sendNotification = (message) => {
-        setError(true)
-        setErrorMessage([...[message]])
-        return;
-    }
 
     const sendData = async(e) => {
         e.preventDefault();

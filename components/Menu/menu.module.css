@@ -1,7 +1,6 @@
 .titlePage{
     display: flex;
     padding-inline: 10%;
-    padding-block-start: 2%;
 }
 
 .titleLogo2{
@@ -22,6 +21,7 @@
     border: white 5px ridge;
     border-radius: 25px;
     background-image: linear-gradient(280deg, rgba(210,103,160,1) 25%, rgba(247,200,104,1) 100%);
+    z-index: 1;
 }
 
 .titleText{
@@ -52,7 +52,6 @@
     background-image:linear-gradient(0deg, rgba(210,103,160,1) 55%, rgba(247,200,104,1) 100%);
     padding-inline: 65px;
     border-width: 4px;
-    font-style: italic;
     border: white 5px ridge;
     height: fit-content;
     margin-left: -50px;
@@ -68,7 +67,7 @@
 
 .window {
     width: 100vw;
-    height: 75vh;
+    height: 90vh;
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -79,10 +78,33 @@
     padding: 5px 5px 0 0;
     border-radius: 10px;
     border-bottom: 1px solid #eeeeee;
-    height: 80%;
+    height: 50vh;
     display: flex;
-    margin: 100px 2.5% 0 2.5%;
-    width: 33%;
+    margin: 8rem 2.5% 0px 8%;
+    width: 25%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nav::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: #6ab4e4;
+	border-radius: 10px;
+}
+
+.nav::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.nav::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #FFF;
+	background-image: -webkit-linear-gradient(280deg, rgba(210,103,160,1) 25%, rgba(247,200,104,1) 100%);
 }
 
 .tabs {
@@ -98,17 +120,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 128px;
     flex-grow: 1;
     user-select: none;
     background: radial-gradient(circle, rgba(103,210,196,1) 0%, rgba(123,104,247,1) 62%);
-    margin: 0 8% 0 4%;
-    border-radius: 10px;
+    margin: 5% 8% 0 4%;
+    border-radius: 15px;
     width: 50%;
     border-width: 4px;
     border-style: solid;
     border: white 5px ridge;
     scroll-behavior: auto;
+    overflow: hidden;
 }
 
 .ulMenu,
@@ -126,8 +148,8 @@
 }
 
 .liMenu {
-    border-radius: 15px;
-    padding: 20px 15px;
+    border-radius: 3rem;
+    padding: 10px 15px;
     background: #0000003f;
     margin-bottom: 1rem;
 }
@@ -200,14 +222,21 @@
     .nav{
         width: 100%;
         height: auto;
+        margin: 6rem 0 0 0;
     }
 
     .ulMenu{
-        flex-direction: row;
+        flex-wrap: wrap;
+        max-height: 260px;
+    }
+
+    .liMenu{
+        width: 50%;
     }
 
     .main{
         width: 100%;
+        margin: 0;
     }
 
     .titleText{
