@@ -10,6 +10,12 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
     
     const [dataForm, setDataForm] = useState({userName:'', password:'', name:'', age:0, email:''});
 
+    const sendNotification = (message) => {
+        setError(true)
+        setErrorMessage([...[message]])
+        return;
+    }
+
     const sendData = async(e) => {
         e.preventDefault();
         
@@ -34,6 +40,7 @@ const Modal = ({ handleClose, setError, setErrorMessage, content }) => {
             return;
         }        
         let registerData = await userRegister(dataForm);
+        console.log('REGISTRO',registerData)
         if(registerData.status === true){
             sendNotification({text:'Registro completado',typeToast:"sucess"})
             handleClose()

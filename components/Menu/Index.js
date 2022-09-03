@@ -74,9 +74,9 @@ const Menu = () => {
                     >
                     {selectedTab ? 
                         selectedTab.id == 1? <Profile setError={setError} setErrorMessage={setErrorMessage}/>:
-                        selectedTab.id == 2? <Categorias/>:
-                        selectedTab.id == 3? <Juegos/>:
-                        selectedTab.id == 4? <Noticias/>:"⛔"
+                        selectedTab.id == 2? "⛔":
+                        selectedTab.id == 3? "⛔":
+                        selectedTab.id == 4? "⛔":"⛔"
                     : "🚫"}
                 </motion.main>
             </div>
