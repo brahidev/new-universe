@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-
 import Header from '../components/Head/Header'
-import HomeMenu from '../components/Home/Menu/HomeMenu';
-import Home from '../components/Home/'
-
+import Menu from '../components/Home/Menu/Menu';
+import Home from '../components/Home/Home'
+import Footer from '../components/Footer/Footer';
 
 const Index = ({ feeds }) => {
   const { data } = feeds
@@ -14,19 +13,20 @@ const Index = ({ feeds }) => {
   })
 
   return (
-    <div className=''>
+    <>
       <Header
         text="New Universe"
       />
-      <HomeMenu />
+      <Menu />
       <Home
         feeds={ data }
       />
-    </div>
+      <Footer />
+    </>
   );
 }
 
-export async function getServerSideProps(req, resp) {
+export async function getServerSideProps() {
   // Fetch data
   const URL = `${ process.env.HOST }/api/feeds`
   const feed = await fetch(URL)

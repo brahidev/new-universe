@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import {motion, animatePresence} from "framer-motion"
+import { motion } from "framer-motion"
 import { allImages } from "../../../utils/importAllImages"
 import Image from 'next/image'
 import Link from 'next/link'
-
-import logo from '../../../public/images/NewUniverseLogo.png'
 import star from '../../../public/images/star.png'
 
-const HomeMenu = () => {
+const Menu = () => {
     const [ dropdown, setDropdown ] = useState(false)
 
     return (
@@ -135,4 +133,4 @@ const HomeMenu = () => {
     )
 }
 
-export default HomeMenu
+export default Menu

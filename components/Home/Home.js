@@ -1,4 +1,4 @@
-import Principal from "./Sections/principal"
+import Principal from "./Sections/Principal"
 
 const Home = ({ feeds }) => {
     return (
