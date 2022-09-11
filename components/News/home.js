@@ -1,6 +1,6 @@
 import PrincipalNews from "./principal"
 import Separator from '../Separator/Separator'
-import News from "../Home/Sections/News/news"
+import News from "../Home/Sections/News/News"
 
 const HomeNews = ({ feeds }) => {
     return (
