@@ -21,8 +21,8 @@ const Principal = ({ feeds = [] }) => {
                 <div className={`${styles.hero_spiral} md:w-[100%] flex justify-center overflow-hidden`}>
                     <div className={`backgroundSpiral ${styles.backgroundSpiral}`}></div>
                 </div>
-                <div className="w-[100%] flex mt-[35%] md:mt-[5%] flex-col md:flex-row">
-                    <div className="w-[100%] md:w-[40%] md:px-[5%] flex flex-col justify-center items-center z-10">
+                <div className="w-[100%] flex justify-center mt-[35%] md:mt-[5rem] flex-col md:flex-row">
+                    <div className="w-[100%] md:w-[70rem] md:px-[5%] flex flex-col justify-center items-center z-10">
                         <span className="text-blue-900 font-bold font-titleExtraBold text-3xl">New Universe Plataform</span>
                         <span className="text-blue-900 text-center mt-[1rem] font-bold font-titleNormal text-2xl">
                             The New Universe Plataform allows to make very easy for people of all 
@@ -34,7 +34,7 @@ const Principal = ({ feeds = [] }) => {
                             an intermediary thanks to the new Web monetization system we use.
                         </span>
                     </div>
-                    <div className="w-[100%] md:w-[60%] flex mt-[15rem] md:mt-[12rem] relative flex-col items-center z-10">
+                    <div className="w-[100%] md:w-[50rem] flex mt-[15rem] md:mt-[12rem] relative flex-col items-center z-10">
                         <motion.div
                                 animate={{
                                     y: [0, 10, 20 , 10, 0],
@@ -109,7 +109,7 @@ const Principal = ({ feeds = [] }) => {
             <Separator
                 position="relative z-50 bg-inherit pt-8 my-[-1rem]"
             />
-            <div className="flex flex-col md:flex-row md:justify-center md:pl-24 md:pr-24 md:pt-[5rem] md:pb-[8rem] bg-sky bg-no-repeat bg-inherit h-auto pb-16">
+            <div className="flex flex-col bg-cover md:flex-row md:justify-center md:pl-24 md:pr-24 md:pt-[5rem] md:pb-[8rem] bg-sky bg-no-repeat bg-inherit h-auto pb-16">
                 <div className="flex justify-center md:relative md:left-12 md:justify-start md:pt-0 md:mb-10 pt-[5%] mb-[-2rem] z-10">
                     <motion.img
                         initial={{ opacity: 0, scale: 0.5 }}

@@ -26,7 +26,7 @@ const Card = ({ date, description, image, button }) => {
                 className="flex flex-col bg-white m-5 p-5 rounded-lg md:w-[20%]"
                 onClick={ handeClick }
             >
-                <div>
+                <div className="flex justify-center ">
                     <Image
                         src={ image }
                         alt="Picture of the author"

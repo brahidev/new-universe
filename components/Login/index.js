@@ -116,7 +116,7 @@ const Login = () => {
                 exitBeforeEnter={ true }
                 onExitComplete={ () => null }
             >
-                { modalOpen && <Modal modalOpen={ modalOpen } setError={setError} setErrorMessage={setErrorMessage} handleClose={ close } /> }
+            { modalOpen && <Modal modalOpen={ modalOpen } setError={setError} setErrorMessage={setErrorMessage} handleClose={ close } /> }
             </AnimatePresence>
         </>
     )

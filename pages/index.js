@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import Header from '../components/Head/Header'
 import HomeMenu from '../components/Home/Menu/HomeMenu';
@@ -13,12 +13,16 @@ const Index = ({ feeds }) => {
     document.body.classList.add("landing")
   })
 
+  const scrollOn = (active)=>{
+    active? document.body.style.overflowY = "scroll" : document.body.style.overflowY = "hidden"
+  }
+
   return (
-    <div className=''>
+    <div className="">
       <Header
         text="New Universe"
       />
-      <HomeMenu />
+      <HomeMenu scrollOn={scrollOn}/>
       <Home
         feeds={ data }
       />
