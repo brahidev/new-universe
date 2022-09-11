@@ -12,12 +12,18 @@ const Index = ({ feeds }) => {
     document.body.classList.add("landing")
   })
 
+  const scrollOn = (active)=>{
+    active? document.body.style.overflowY = "scroll" : document.body.style.overflowY = "hidden"
+  }
+
   return (
     <>
       <Header
         text="New Universe"
       />
-      <Menu />
+      <Menu
+        scrollOn={scrollOn}
+      />
       <Home
         feeds={ data }
       />

@@ -3,12 +3,18 @@ import { motion } from "framer-motion"
 import { allImages } from "../../../utils/importAllImages"
 import Image from 'next/image'
 import Link from 'next/link'
+import ModalLogin from '../ModalLogin'
 import star from '../../../public/images/star.png'
 
-const Menu = () => {
+const Menu = ({ scrollOn }) => {
     const [ dropdown, setDropdown ] = useState(false)
+    const [ modalLoginOpen, setModalLogin ] = useState(false)
+
+    const close = () => setModalLogin(false)
+    const open = () => setModalLogin(true)
 
     return (
+        <>
         <nav className="fixed top-0 w-[100vw] border-gray-200 px-2 bg-white/70 md:px-4 py-2.5 md:bg-white/70 z-[60]">
             <div className="flex flex-wrap justify-between items-center mx-auto md:justify-center">
                 <Link href="/" >
@@ -59,23 +65,22 @@ const Menu = () => {
                                     }}
                                 />
                             </Link>
-                            <Link href="/login">
-                                <motion.button
-                                    animate={{
-                                        scale:[1,0.95,1]
-                                    }}
-                                    transition={{ ease: "linear", duration: 3, repeat: Infinity }}
-                                    style={{
-                                        width: '10rem',
-                                        height: '3rem',
-                                        right: '1rem',
-                                        position: 'absolute',
-                                    }}
-                                    whileHover={{ background: 'rgb(67 56 202 / var(--tw-text-opacity))', border: '2px solid #fff', color:'#fff' }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className={`p-2 w-20 italic text-center font-bold text-indigo-700 rounded-lg shadow-lg border-solid border-2 border-indigo-700`}
-                                >Login / Registro</motion.button>
-                            </Link>
+                            <motion.button
+                                animate={{
+                                    scale:[1,0.95,1]
+                                }}
+                                transition={{ ease: "linear", duration: 3, repeat: Infinity }}
+                                style={{
+                                    width: '10rem',
+                                    height: '3rem',
+                                    right: '1rem',
+                                    position: 'absolute',
+                                }}
+                                whileHover={{ background: 'rgb(67 56 202 / var(--tw-text-opacity))', border: '2px solid #fff', color:'#fff' }}
+                                whileTap={{ scale: 0.9 }}
+                                className={`p-2 w-20 italic text-center font-bold text-indigo-700 rounded-lg shadow-lg border-solid border-2 border-indigo-700`}
+                                onClick={ () => (modalLoginOpen ? close() : open()) }
+                            >Login / Registro</motion.button>
                         </>
                         :null
                     }
@@ -130,6 +135,8 @@ const Menu = () => {
                 </div>
             </div>
         </nav>
+        { modalLoginOpen && <ModalLogin scrollOn={scrollOn} handleClose={ close } /> }
+        </>
     )
 }
 
