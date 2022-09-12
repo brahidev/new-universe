@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {motion} from "framer-motion"
 import { allImages } from "../../../utils/importAllImages"
 import Entry from './sections/entry/entry'

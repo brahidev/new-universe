@@ -1,6 +1,6 @@
 import {motion} from "framer-motion"
 import {allImages} from "../../../../../utils/importAllImages"
-import InputCustom from '../../../../Input/input'
+import {InputCustom} from '../../../../Input/input'
 import Extern from '../Extern'
 
 const Entry = ({setIsLogin, setIsRegister, setIsEntry}) => {
