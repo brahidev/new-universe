@@ -1,0 +1,97 @@
+.hero_spiral{
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.backgroundSpiral{
+    background: url(../../public/images/spiral.png);
+    height: 1500px;
+    transform-origin: 50%;
+    width: 1500px;
+}
+
+.bg_spiral_container,.bg_spiral{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.bg_spiral_final {
+    background-image: linear-gradient(to bottom, #CCFFFD 0%, #FFB6D9 100%);
+}
+
+.bg_spiral_powerful {
+    background-image: linear-gradient(to bottom, #FFAE29 0%, #FCD555 100%);
+}
+
+.bg_spiral_puffy {
+    background-image: linear-gradient(to bottom, #CBB0FF 0%, #CCFFFD 100%);
+}
+
+.bg_spiral_pink {
+    background-image: linear-gradient(to bottom, #FFB6D9 0%, #FCD454 100%);
+}
+
+.kirby {
+    position: absolute;
+    top: 2rem;
+    left: 18rem;
+    z-index: 1;
+}
+
+.metaknight {
+    position: absolute;
+    top: -8rem;
+    left: 30rem;
+}
+
+.dedede {
+    position: absolute;
+    top: 5rem;
+    left: 6rem;
+}
+
+.waddledee {
+    position: absolute;
+    top: -5rem;
+    left: 12rem;
+}
+
+.bgYellow{
+    background-image: linear-gradient(-180deg, #FCD555 0%, #FFAE29 100%)
+}
+
+@media (max-width: 768px) {
+    .kirby {
+        width: 215px;
+        height: auto;
+        top: -10rem;
+        left: 24%;
+    }
+    
+    .metaknight {
+        width: 150px;
+        height: auto;
+        top: -14rem;
+        left: 60%;
+    }
+    
+    .dedede {
+        height: auto;
+        top: -7rem;
+        width: 118px;
+        left: calc(12% - 50px);
+    }
+    
+    .waddledee {
+        height: auto;
+        width: 90px;
+        top: -12rem;
+        left: calc(18% - 40px);
+    } 
+}
