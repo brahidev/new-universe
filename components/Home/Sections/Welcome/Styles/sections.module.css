@@ -7,7 +7,7 @@
 }
 
 .backgroundSpiral{
-    background: url(../../../public/images/spiral.png);
+    background: url(../../../../../public/images/spiral.png);
     height: 1500px;
     transform-origin: 50%;
     width: 1500px;

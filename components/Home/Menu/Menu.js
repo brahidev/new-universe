@@ -1,20 +1,18 @@
 import { useState } from 'react'
-import {motion, animatePresence} from "framer-motion"
+import { motion } from "framer-motion"
 import { allImages } from "../../../utils/importAllImages"
 import Image from 'next/image'
 import Link from 'next/link'
 import ModalLogin from '../ModalLogin'
-
-import logo from '../../../public/images/NewUniverseLogo.png'
 import star from '../../../public/images/star.png'
 
-const HomeMenu = ({ scrollOn }) => {
+const Menu = ({ scrollOn }) => {
     const [ dropdown, setDropdown ] = useState(false)
     const [ modalLoginOpen, setModalLogin ] = useState(false)
 
     const close = () => setModalLogin(false)
     const open = () => setModalLogin(true)
-    
+
     return (
         <>
         <nav className="fixed top-0 w-[100vw] border-gray-200 px-2 bg-white/70 md:px-4 py-2.5 md:bg-white/70 z-[60]">
@@ -147,4 +145,4 @@ const HomeMenu = ({ scrollOn }) => {
     )
 }
 
-export default HomeMenu
+export default Menu

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import Header from '../components/Head/Header'
-import HomeMenu from '../components/Home/Menu/HomeMenu';
+import Menu from '../components/Home/Menu/Menu';
 import HomeNews from '../components/News/home';
 
 const NewsPage = ({ feeds }) => {
@@ -12,12 +12,18 @@ const NewsPage = ({ feeds }) => {
         document.body.classList.add("landing")
     })
 
+    const scrollOn = (active)=>{
+        active? document.body.style.overflowY = "scroll" : document.body.style.overflowY = "hidden"
+    }
+
     return (
         <>
             <Header
                 text="News"
             />
-            <HomeMenu />
+            <Menu
+                scrollOn={ scrollOn }
+            />
             <HomeNews
                 feeds={ data }
             />
