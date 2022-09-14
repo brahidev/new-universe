@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import Header from '../components/Head/Header'
-import HomeMenu from '../components/Home/Menu/HomeMenu';
+import HomeMenu from '../components/Home/Menu/Menu';
 import HomeStickers from '../components/Stickers/home';
 
 const StickersPage = () => {

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import {motion} from "framer-motion"
 import { allImages } from "../../../utils/importAllImages"
-import Entry from './sections/entry/entry'
-import Error from '../../Error/Error';
-import Login from './sections/login/login'
-import Register from './sections/register/register'
+import Entry from './sections/Entry/entry'
+import Login from './sections/Login/login'
+import Register from './sections/Register/register'
 
 const ModalLogin = ({scrollOn,handleClose}) => {
 
