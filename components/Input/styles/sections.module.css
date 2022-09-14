@@ -1,0 +1,38 @@
+.InputText{
+    border: 3px solid #000;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    color: #838689;
+    font-weight: 800;
+    margin-inline: auto;
+}
+
+.InputTextMedium{
+    border: 3px solid #000;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    color: #838689;
+    font-weight: 800;
+    margin-inline: auto;
+    width: 6rem;
+}
+
+.login{
+    margin-inline: auto;
+}
+
+.sizeMedum{
+    width: 50%;
+}
+
+.select{
+    border: 3px solid #000;
+    padding: 0.5rem;
+    border-radius: 2rem;
+}
+
+.InputSelectLarge{
+    width: 100%;
+}

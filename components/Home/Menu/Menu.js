@@ -99,6 +99,13 @@ const Menu = ({ scrollOn }) => {
                             </Link>
                         </li>
                         <li className="py-5">
+                            <Link href="/stickers" >
+                                <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
+                                    <span className="text-2xl"> Stickers </span>
+                                </a>
+                            </Link>
+                        </li>
+                        <li className="py-5">
                             <Link href="/" >
                                 <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
                                     <span className="text-2xl"> About </span>
@@ -106,7 +113,7 @@ const Menu = ({ scrollOn }) => {
                             </Link>
                         </li>
                         <li className="py-5">
-                            <Link href="/" >
+                            <Link href="/news" >
                                 <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
                                     <span className="text-2xl"> News & videos </span>
                                 </a>
@@ -123,11 +130,9 @@ const Menu = ({ scrollOn }) => {
                                     height: '3rem'
                                 }}
                             >
-                                <Link href="/login" >
-                                    <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
-                                        <span className="text-2xl"> Login / Registro </span>
-                                    </a>
-                                </Link>
+                                <button onClick={ () => (modalLoginOpen ? close() : open()) } className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
+                                    <span className="text-2xl"> Login / Registro </span>
+                                </button>
                             </motion.li>
                             :null
                         }

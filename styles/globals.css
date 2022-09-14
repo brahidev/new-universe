@@ -138,6 +138,205 @@ body.dashboard {
   animation: rotating 20s linear infinite;
 }
 
+.btnGreenLogin{
+  font-family: "Dosis", "Open sans", "Helvetica", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.375rem;
+  border-radius: 25px;
+  display: block;
+  overflow: hidden;
+  padding: 2px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  border: solid 3px transparent;
+  z-index: 1;
+  border-color: #129814;
+  cursor: pointer;
+  margin-block: 1rem;
+  width: 16rem;
+  margin-inline: auto;
+}
+
+.btnGreenLogin::after{
+  background: #0b6c2e;
+  content: "";
+  border-radius: 0 0 3em 3em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+}
+
+.btnGreenLogin::before{
+  background: #0ea32a;
+  content: "";
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.btnGreenLogin span{
+  background: #209d14;
+  text-shadow: 0 2px rgb(0 0 0 / 20%);
+  display: block;
+  position: relative;
+  z-index: 2;
+  padding: 4px 0rem;
+  border-radius: 25px;
+}
+
+.btnGreenLogin span::before{
+  background-color: rgba(255,255,255,0.1);
+  content: "";
+  height: 55px;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 40%;
+  z-index: 1;
+}
+
+.btnPinkLogin{
+  font-family: "Dosis", "Open sans", "Helvetica", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.375rem;
+  border-radius: 25px;
+  display: block;
+  overflow: hidden;
+  padding: 2px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  border: solid 3px transparent;
+  z-index: 1;
+  border-color: #d424e4;
+  cursor: pointer;
+  margin-block: 1rem;
+  width: 16rem;
+  margin-inline: auto;
+}
+
+.btnPinkLogin::after{
+  background: #c916a8;
+  content: "";
+  border-radius: 0 0 3em 3em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+}
+
+.btnPinkLogin::before{
+  background: #ff71e3;
+  content: "";
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.btnPinkLogin span{
+  background: #e424da;
+  text-shadow: 0 2px rgb(0 0 0 / 20%);
+  display: block;
+  position: relative;
+  z-index: 2;
+  padding: 4px 0rem;
+  border-radius: 25px;
+}
+
+.btnPinkLogin span::before{
+  background-color: rgba(255,255,255,0.1);
+  content: "";
+  height: 55px;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 40%;
+  z-index: 1;
+}
+
+
+.btnBlueLogin{
+  font-family: "Dosis", "Open sans", "Helvetica", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.375rem;
+  border-radius: 25px;
+  display: block;
+  overflow: hidden;
+  padding: 2px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  border: solid 3px transparent;
+  z-index: 1;
+  border-color: #2457e4;
+  cursor: pointer;
+  margin-block: 1rem;
+  width: 16rem;
+  margin-inline: auto;
+}
+
+.btnBlueLogin::after{
+  background: #1646c9;
+  content: "";
+  border-radius: 0 0 3em 3em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+}
+
+.btnBlueLogin::before{
+  background: #7197ff;
+  content: "";
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.btnBlueLogin span{
+  background: #2457e4;
+  text-shadow: 0 2px rgb(0 0 0 / 20%);
+  display: block;
+  position: relative;
+  z-index: 2;
+  padding: 4px 4rem;
+  border-radius: 25px;
+}
+
+.btnBlueLogin span::before{
+  background-color: rgba(255,255,255,0.1);
+  content: "";
+  height: 55px;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 40%;
+  z-index: 1;
+}
+
 .btnRed{
   font-family: "Dosis", "Open sans", "Helvetica", sans-serif;
   color: #fff;
@@ -302,4 +501,9 @@ body.dashboard {
   height: 2rem;
   width: 9775px;
   overflow-x: hidden;
+}
+
+.borderTextBlue{
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #16206a;
 }
