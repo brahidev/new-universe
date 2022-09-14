@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Typography } from "@material-tailwind/react/";
+import { useRouter } from "next/router"
 
 import Icon from "../Icon/Icon";
 import HomeIcon from "../SVG/Home";
@@ -9,9 +10,18 @@ import GameIcon from "../SVG/Games";
 import NewsIcon from "../SVG/News";
 import LoggoutIcon from "../SVG/Loggout";
 import MobileSidebar from "./MobileSidebar";
+import { Loggout } from "../../../utils/cookies";
 
 const Sidebar = ({ section, setSection }) => {
   const [ showSidebar, setShowSidebar ] = useState("-left-64");
+  const router = useRouter()
+
+
+  const loggout = () => {
+    Loggout()
+
+    router.push('/admin')
+  }
 
   return (
     <>
@@ -72,7 +82,10 @@ const Sidebar = ({ section, setSection }) => {
             </ul>
 
             <ul className="flex-col min-w-full flex list-none absolute bottom-0">
-              <li className="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 px-4 rounded-lg text-white mb-2">
+              <li
+                className="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 px-4 rounded-lg text-white cursor-pointer mb-2"
+                onClick={ loggout }
+              >
                 <a
                   className="flex items-center gap-4 text-sm font-light py-3"
                 >
