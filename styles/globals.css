@@ -424,6 +424,12 @@ body.dashboard {
   margin-block: 1rem;
 }
 
+@media (max-width: 768px){
+  .btnBlue{
+    min-width: 18rem;
+  }
+}
+
 .btnBlue::after{
   background: #1646c9;
   content: "";

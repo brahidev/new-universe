@@ -15,7 +15,7 @@ const Menu = ({ scrollOn }) => {
 
     return (
         <>
-        <nav className="fixed top-0 w-[100vw] border-gray-200 px-2 bg-white/70 md:px-4 py-2.5 md:bg-white/70 z-[60]">
+        <nav className="fixed top-0 w-[100vw] border-gray-200 px-2 bg-gray-100/80 md:px-4 py-2.5 md:bg-white/70 z-[60]">
             <div className="flex flex-wrap justify-between items-center mx-auto md:justify-center">
                 <Link href="/" >
                     <a className="flex items-center md:hidden">
@@ -66,25 +66,26 @@ const Menu = ({ scrollOn }) => {
                                 />
                             </Link>
                             <motion.button
-                                animate={{
-                                    scale:[1,0.95,1]
-                                }}
-                                transition={{ ease: "linear", duration: 3, repeat: Infinity }}
-                                style={{
-                                    width: '10rem',
-                                    height: '3rem',
-                                    right: '1rem',
-                                    position: 'absolute',
-                                }}
-                                whileHover={{ background: 'rgb(67 56 202 / var(--tw-text-opacity))', border: '2px solid #fff', color:'#fff' }}
+                                whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
-                                className={`p-2 w-20 italic text-center font-bold text-indigo-700 rounded-lg shadow-lg border-solid border-2 border-indigo-700`}
+                                transition={{ duration: 0.1 }}
+                                className="btnBlue"
+                                style={{
+                                    width: '15rem',
+                                    right: '2rem',
+                                    position: 'absolute',
+                                    fontSize: '1rem',
+                                }}
                                 onClick={ () => (modalLoginOpen ? close() : open()) }
-                            >Login / Registro</motion.button>
+                            >
+                                    <span>
+                                        Login / Registro
+                                    </span>
+                            </motion.button>
                         </>
                         :null
                     }
-                    <ul className="flex flex-col text-center mt-4 md:flex-row md:space-x-32 md:mt-0 font-bold">
+                    <ul className="flex flex-col text-center mt-4 mb-[1rem] md:flex-row md:space-x-32 md:mt-0 font-bold">
                         <li className="py-5">
                             <Link href="/" >
                                 <a className=" text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
@@ -130,9 +131,22 @@ const Menu = ({ scrollOn }) => {
                                     height: '3rem'
                                 }}
                             >
-                                <button onClick={ () => (modalLoginOpen ? close() : open()) } className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
-                                    <span className="text-2xl"> Login / Registro </span>
-                                </button>
+                                <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                transition={{ duration: 0.1 }}
+                                className="btnBlue"
+                                style={{
+                                    width: '15rem',
+                                    position: 'relative',
+                                    fontSize: '1rem',
+                                }}
+                                onClick={ () => (modalLoginOpen ? close() : open()) }
+                            >
+                                    <span>
+                                        Login / Registro
+                                    </span>
+                            </motion.button>
                             </motion.li>
                             :null
                         }

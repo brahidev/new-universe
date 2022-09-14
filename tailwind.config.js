@@ -12,6 +12,7 @@ module.exports = withMT({
       backgroundImage: {
         'anniversaryKirby': "url('https://kirby.nintendo.com/assets/img/anniversary-bg.jpg')",
         'newsFeed': "url('../public/images/star-gradient-bg.jpg')",
+        'stickers': "url('../public/images/start-gradient-green.jpg')",
         'zig-zac': "url('https://kirby.nintendo.com/assets/img/zig-zag-border.png')",
         'sky': "url('../public/images/Sky-bg.jpg')",
         'stars-white': "url('../public/images/bg_starpattern.png')",

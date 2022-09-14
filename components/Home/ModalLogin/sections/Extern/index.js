@@ -13,6 +13,7 @@ const Extern = () => {return (
                 fontSize: '15px',
                 width: '12rem'
             }}
+            href="https://coil.com/"
         >
             <span>
                 Go to Coil
@@ -29,6 +30,7 @@ const Extern = () => {return (
                 whiteSpace: 'pre',
                 width: '12rem'
             }}
+            href="https://webmonetization.org/"
         >
             <span>
                 About Web Monetizacion

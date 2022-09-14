@@ -31,6 +31,7 @@ const Info = () => (
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.1 }}
           className="btnRed"
+          href="https://pollitoxiangxiang.com/TestingNU/newuniverse-urp/"
         >
           <span>Sign Up Here</span>
         </motion.a>
