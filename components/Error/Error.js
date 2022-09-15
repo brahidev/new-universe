@@ -1,5 +1,5 @@
 import { useEffect,useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {animationsFramer} from '../../utils/effectsFramerMotion'
 
 const Error = ({ listMessages, duration=2000}) => {
