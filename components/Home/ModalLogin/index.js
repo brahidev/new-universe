@@ -4,6 +4,8 @@ import { allImages } from "../../../utils/importAllImages"
 import Entry from './sections/Entry/entry'
 import Login from './sections/Login/login'
 import Register from './sections/Register/register'
+import Profile from './sections/Profile/profile.js'
+import Error from '../../Error/Error'
 
 const ModalLogin = ({scrollOn,handleClose}) => {
 
@@ -12,15 +14,16 @@ const ModalLogin = ({scrollOn,handleClose}) => {
     const [ isEntry, setIsEntry ] = useState(true)
     const [ isLogin, setIsLogin ] = useState(false)
     const [ isRegister, setIsRegister ] = useState(false)
-
-    useEffect(() => {
-        scrollOn(false)
-    })
+    const [ isProfile, setProfile] = useState(false)
 
     const closeWindow = () => {
         handleClose()
         scrollOn(true)
     }
+
+    useEffect(() => {
+        scrollOn(false)
+    })
 
     return (
         <div className="fixed z-[60] w-[100vw] h-[100vh] bg-[#00000063]">
@@ -49,11 +52,17 @@ const ModalLogin = ({scrollOn,handleClose}) => {
                 />
                 {
                     isEntry ? <Entry setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry}/> :
-                    isLogin ? <Login setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry}/> : 
-                    isRegister ? <Register setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry}/> : 
+                    isLogin ? <Login setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry} setProfile={setProfile} setError={setError} setErrorMessage={setErrorMessage}/> : 
+                    isRegister ? <Register setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry} setProfile={setProfile} setError={setError} setErrorMessage={setErrorMessage}/> : 
+                    isProfile ? <Profile setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry} setProfile={setProfile} setError={setError} setErrorMessage={setErrorMessage}/> :
                     null
                 }
             </motion.div>
+            {isError &&
+                <Error
+                    listMessages={ listErrorMessage.length === 0 ? ['Todos los campos son obligatorios 🔐'] : listErrorMessage }
+                />
+            }
         </div>
     )
 }
