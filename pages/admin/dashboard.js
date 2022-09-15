@@ -6,9 +6,11 @@ import DashboardContent from "./section/DashboardContent";
 import GamesContent from "./section/GamesContent";
 import { checkLoginCookie } from "../../utils/cookies";
 
+
 const Dashboard = () => {
 	const [ section, setSection ] = useState("dashboard")
 	const router = useRouter()
+
 
 	useEffect(() => {
 		const Login =  checkLoginCookie()
@@ -28,7 +30,12 @@ const Dashboard = () => {
 		if ( section === 'games' ){
 			return <GamesContent />
 		}
-		if ( section === 'news' ){ return <p> News </p> }
+		if ( section === 'news' ){
+			return (
+				<div>
+				</div>
+			)
+		}
 	}
 
 	return (
