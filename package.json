@@ -12,6 +12,7 @@
     "@material-tailwind/react": "^1.2.4",
     "framer-motion": "^6.5.1",
     "next": "12.2.2",
+    "next-remove-imports": "^1.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-moment": "^1.1.2"
