@@ -54,9 +54,7 @@ const DashboardContent = () => {
               {
                 users != undefined ?
                   users.map((element, index) => {
-
                     const data = JSON.parse(element.json)
-                    console.log('Data', data)
 
                     return (
                       <tr key={ index } className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
