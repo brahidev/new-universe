@@ -6,15 +6,16 @@ import Login from './sections/Login/login'
 import Register from './sections/Register/register'
 import Profile from './sections/Profile/profile.js'
 import Error from '../../Error/Error'
+import { getCookie } from '../../../utils/cookies'
 
-const ModalLogin = ({scrollOn,handleClose}) => {
-
+const ModalLogin = ({scrollOn, handleClose})=>{
     const [ isError, setError ] = useState(false)
     const [ listErrorMessage, setErrorMessage ] = useState([])
     const [ isEntry, setIsEntry ] = useState(true)
     const [ isLogin, setIsLogin ] = useState(false)
     const [ isRegister, setIsRegister ] = useState(false)
     const [ isProfile, setProfile] = useState(false)
+    const [ isLoged, setIsLoged] = useState(false)
 
     const closeWindow = () => {
         handleClose()
@@ -23,6 +24,11 @@ const ModalLogin = ({scrollOn,handleClose}) => {
 
     useEffect(() => {
         scrollOn(false)
+        let dataUser = getCookie('user')
+        if(dataUser && dataUser.length > 0){
+            setIsEntry(false)
+            setProfile(true)
+        }
     })
 
     return (
@@ -52,9 +58,9 @@ const ModalLogin = ({scrollOn,handleClose}) => {
                 />
                 {
                     isEntry ? <Entry setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry}/> :
-                    isLogin ? <Login setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry} setProfile={setProfile} setError={setError} setErrorMessage={setErrorMessage}/> : 
+                    isLogin ? <Login setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry} setProfile={setProfile} setError={setError} setErrorMessage={setErrorMessage} setIsLoged={setIsLoged}/> : 
                     isRegister ? <Register setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry} setProfile={setProfile} setError={setError} setErrorMessage={setErrorMessage}/> : 
-                    isProfile ? <Profile setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry} setProfile={setProfile} setError={setError} setErrorMessage={setErrorMessage}/> :
+                    (isProfile || isLoged) ? <Profile setIsLogin={setIsLogin} setIsRegister={setIsRegister} setIsEntry={setIsEntry} setProfile={setProfile} setError={setError} setErrorMessage={setErrorMessage}/> :
                     null
                 }
             </motion.div>
