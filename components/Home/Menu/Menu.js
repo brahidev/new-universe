@@ -101,22 +101,40 @@ const Menu = ({ scrollOn }) => {
                         </li>
                         <li className="py-5">
                             <Link href="/stickers" >
-                                <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
+                                <a className=" text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
+                                    <span>
+                                        <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
+                                    </span>
                                     <span className="text-2xl"> Stickers </span>
+                                    <span>
+                                        <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
+                                    </span>
                                 </a>
                             </Link>
                         </li>
                         <li className="py-5">
-                            <Link href="/" >
+                            <Link href="/about" >
                                 <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
+                                    <span>
+                                        <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
+                                    </span>
                                     <span className="text-2xl"> About </span>
+                                    <span>
+                                        <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
+                                    </span>
                                 </a>
                             </Link>
                         </li>
                         <li className="py-5">
                             <Link href="/news" >
                                 <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
+                                    <span>
+                                        <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
+                                    </span>
                                     <span className="text-2xl"> News & videos </span>
+                                    <span>
+                                        <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
+                                    </span>
                                 </a>
                             </Link>
                         </li>
