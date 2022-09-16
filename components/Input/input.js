@@ -16,10 +16,9 @@ const InputCustom = ({ value, label, name, placeholder, type, classInput, classF
   );
 }
 
-const InputSelect = ({optionsValues,positionDefault,classSelect})=>{
+const InputSelect = ({optionsValues,positionDefault,classSelect,functionOnchange})=>{
   return(
-    <select className={`${styles.select} ${styles[classSelect]}`}>
-      {console.log('OPTIONS',optionsValues)}
+    <select className={`${styles.select} ${styles[classSelect]}`} onChange={functionOnchange}>
       {optionsValues.map((item,index) =>{
         let { value,name } = item
         return(

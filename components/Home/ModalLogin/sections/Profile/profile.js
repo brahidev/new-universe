@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { regExpInputs } from '../../../../../utils/regExp'
 import { userRegister } from "../../../../../utils/provider/provider"
 
-const Register = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, setErrorMessage}) => {
+const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, setErrorMessage}) => {
 
     const [dataForm, setDataForm] = useState({userName:'', password:'', confirmpassword:'', email:'', age:0, genero:'', languaje:'', country:'', coilid:''});
 
@@ -404,4 +404,4 @@ const Register = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, 
     )
 }
 
-export default Register
+export default Profile

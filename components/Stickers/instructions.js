@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 const Instructions = () => {
     return(
-        <div className={`w-[99vw] flex flex-col overflow-x-hidden ${styles.bgYellow}`}>
+        <div className={`w-[100%] flex flex-col overflow-x-hidden ${styles.bgYellow}`}>
             <span className="w-[100%] my-[2rem] text-blue-900 text-center font-bold font-['Sniglet'] text-5xl">Instructions to download Froggy</span>
             <span className="w-[100%] text-blue-900 text-center font-bold font-['Sniglet'] text-5xl">Stickers</span>
             <div className="flex flex-col md:flex-row my-[2rem] justify-center">
