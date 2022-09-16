@@ -4,13 +4,13 @@ import Sidebar from "../../components/Admin/Sidebar/Sidebar";
 import Header from "../../components/Head/Header";
 import DashboardContent from "./section/DashboardContent";
 import GamesContent from "./section/GamesContent";
+import NewsContent from "./section/NewsContent";
 import { checkLoginCookie } from "../../utils/cookies";
 
 
 const Dashboard = () => {
 	const [ section, setSection ] = useState("dashboard")
 	const router = useRouter()
-
 
 	useEffect(() => {
 		const Login =  checkLoginCookie()
@@ -31,10 +31,7 @@ const Dashboard = () => {
 			return <GamesContent />
 		}
 		if ( section === 'news' ){
-			return (
-				<div>
-				</div>
-			)
+			return <NewsContent />
 		}
 	}
 
