@@ -1,6 +1,5 @@
 const storeLoginCookie = () => {
     document.cookie = "logged=true"
-
     return `Cookie stored (logged)`
 }
 
@@ -25,8 +24,21 @@ const Loggout = () => {
     }
 }
 
+const setUserCookie = (dataUser) => {
+    console.log('DATA USER',dataUser);
+    document.cookie = "user=" + dataUser
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
 export {
     storeLoginCookie,
     checkLoginCookie,
-    Loggout
+    Loggout,
+    setUserCookie,
+    getCookie
 }

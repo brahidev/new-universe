@@ -2,13 +2,32 @@ import {motion} from "framer-motion"
 import {allImages} from "../../../../../utils/importAllImages"
 import {InputCustom,InputSelect} from '../../../../Input/input'
 import Extern from '../Extern'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { regExpInputs } from '../../../../../utils/regExp'
-import { userRegister } from "../../../../../utils/provider/provider"
+import { userRegister,userUpdate } from "../../../../../utils/provider/provider"
+import { getCookie, Loggout } from '../../../../../utils/cookies'
 
 const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, setErrorMessage}) => {
 
     const [dataForm, setDataForm] = useState({userName:'', password:'', confirmpassword:'', email:'', age:0, genero:'', languaje:'', country:'', coilid:''});
+
+    useEffect(()=>{
+        let dataUser = getCookie('user')
+        if(dataUser && dataUser.length > 0){
+            let userObj = JSON.parse(dataUser)
+            setDataForm({
+                userName:userObj.userName, 
+                password:userObj.password,
+                confirmpassword:userObj.confirmpassword,
+                email:userObj.email,
+                age:userObj.age,
+                genero:userObj.genero,
+                languaje:userObj.languaje,
+                country:userObj.country,
+                coilid:userObj.coilid
+            })
+        }
+    },[])
 
     const showLogin = ()=>{
         setIsLogin(true);
@@ -41,43 +60,28 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                 sendNotification({text:'Contraseñas no coinciden',typeToast:"danger"})
                 return;
             }
-        }
-        if(!regExpInputs.regExpEmail.test(dataForm.email)){
-            dataForm.email == '' ? sendNotification({text:'Correo vacío',typeToast:"danger"}) : sendNotification({text:'Correo incorrecto',typeToast:"danger"})
-            return;
-        }
-        if(!regExpInputs.regExpAge.test(dataForm.age)){
-            dataForm.age == '' ? sendNotification({text:'Edad vacío',typeToast:"danger"}) : sendNotification({text:'Edad incorrecta',typeToast:"danger"})
-            return;
-        }
-        if(dataForm.genero){
-            if(dataForm.genero == ''){ 
-                sendNotification({text:'Selecciona género',typeToast:"danger"}) 
-                return;
+        } 
+        let json = new Object(dataForm)
+        delete dataForm.email
+        delete dataForm.age
+        delete dataForm.genero
+        delete dataForm.languaje
+        delete dataForm.country
+        delete dataForm.coilid
+        let dataUser = getCookie('user')
+        if(dataUser && dataUser.length > 0){
+            const {confirmpassword,password,userName} = dataForm
+            let body = {
+                "id":JSON.parse(dataUser).id,
+                "password":password,
+                "username":userName,
+                "json":JSON.stringify(json)
             }
-        }      
-        if(dataForm.languaje){
-            if(dataForm.languaje == ''){ 
-                sendNotification({text:'Selecciona idioma',typeToast:"danger"}) 
-                return;
-            }
-        }    
-        if(dataForm.country){
-            if(dataForm.country == ''){ 
-                sendNotification({text:'País vacío',typeToast:"danger"}) 
-                return;
-            }
-        }   
-        let registerData = await userRegister(dataForm);
-        if(registerData.status === true){
-            sendNotification({text:'Registro completado',typeToast:"sucess"})
-            showLogin()
-        }else if(registerData.status === false){
-            if(registerData.message.indexOf('registrado') > -1){
-                sendNotification({text:'Usuario ya se encuentra registrado',typeToast:"warning"})
+            let registerData = await userUpdate(body);
+            if(registerData.status === true){
+                sendNotification({text:'Actualización completado',typeToast:"sucess"})
                 showLogin()
-                return;
-            }else{
+            }else if(registerData.status === false){
                 sendNotification({text:'Error inesperado',typeToast:"warning"})
                 return;
             }
@@ -86,14 +90,14 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
 
     return(
         <>
-            <h1>Profile</h1>
+            <span className="text-blue-900 text-center block font-['Sniglet'] mx-[auto] text-3xl">Profile</span>
             <form onSubmit={ sendData }>
                 <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.1 }}
                     style={{
-                        marginTop: '20%',
+                        marginTop: '10%',
                         fontSize: '100%',
                         width: '12rem',
                         marginInline: 'auto'
@@ -101,7 +105,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                 >
                     <InputCustom 
                         type="text"
-                        //value={''}
+                        value={dataForm.userName}
                         placeholder="Nickname"
                         label=""
                         name="nickname"
@@ -134,7 +138,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                 >
                     <InputCustom 
                         type="text"
-                        //value={''}
+                        value={dataForm.password}
                         placeholder="Password"
                         label=""
                         name="password"
@@ -167,7 +171,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                 >
                     <InputCustom 
                         type="text"
-                        //value={''}
+                        value={dataForm.confirmpassword}
                         placeholder="Confirm Password"
                         label=""
                         name="password"
@@ -199,7 +203,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                 >
                     <InputCustom 
                         type="email"
-                        //value={''}
+                        value={dataForm.email}
                         placeholder="Email"
                         label=""
                         name="email"
@@ -215,7 +219,9 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                             languaje:dataForm.languaje, 
                             country:dataForm.country, 
                             coilid:dataForm.coilid
-                        }) }                     />
+                        }) }     
+                        disabled="true"
+                    />
                 </motion.div>
                 <div className="flex flex-row w-[85%] justify-around">
                     <motion.div
@@ -231,7 +237,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                     >
                         <InputCustom 
                             type="number"
-                            //value={''}
+                            value={dataForm.age}
                             placeholder="Age"
                             label=""
                             name="age"
@@ -247,7 +253,8 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                                 languaje:dataForm.languaje, 
                                 country:dataForm.country, 
                                 coilid:dataForm.coilid
-                            }) }                         
+                            }) }                
+                            disabled="true"         
                         />
                     </motion.div>
                     <motion.div
@@ -262,6 +269,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                         }}
                     >
                         <InputSelect
+                            value={dataForm.genero}
                             optionsValues={[
                                 {value:'',name:'Gender'},
                                 {value:'M',name:'Male'},
@@ -280,6 +288,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                                 country:dataForm.country, 
                                 coilid:dataForm.coilid
                             })} }
+                            disabled="true"
                         />
                     </motion.div>
                 </div>
@@ -296,6 +305,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                     }}
                 >
                     <InputSelect
+                        value={dataForm.languaje}
                         optionsValues={[
                             {value:'',name:'Languaje'},
                             {value:'Spanish',name:'Spanish'},
@@ -314,6 +324,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                             country:dataForm.country, 
                             coilid:dataForm.coilid
                         })} }
+                        disabled="true"
                     />
                 </motion.div>
                 <motion.div
@@ -330,7 +341,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                 >
                     <InputCustom 
                         type="text"
-                        //value={''}
+                        value={dataForm.country}
                         placeholder="Country/Region"
                         label=""
                         name="password"
@@ -347,6 +358,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                             country:e.target.value, 
                             coilid:dataForm.coilid
                         }) }               
+                        disabled="true"
                     />
                 </motion.div>
                 <motion.div
@@ -363,7 +375,7 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                 >
                     <InputCustom 
                         type="text"
-                        //value={''}
+                        value={dataForm.coilid}
                         placeholder="Coil ID"
                         label=""
                         name="password"
@@ -379,23 +391,42 @@ const Profile = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, s
                             languaje:dataForm.languaje, 
                             country:dataForm.country, 
                             coilid:e.target.value
-                        }) }                 
+                        }) }    
+                        disabled="true"             
                     />
                 </motion.div>
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.1 }}
-                    className="btnRed"
+                    className="btnBlue"
                     style={{
-                        marginTop: '20%',
+                        marginTop: '10%',
                         fontSize: '100%',
-                        width: '12rem'
+                        width: '14rem',
+                        marginInline: 'auto'
                     }}
                     type='submit'
                 >
                     <span>
-                        Register
+                        Actualizar
+                    </span>
+                </motion.button>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ duration: 0.1 }}
+                    className="btnRed"
+                    onClick={()=>{Loggout(); setIsLogin(true); setProfile(false)}}
+                    style={{
+                        marginTop: '10%',
+                        fontSize: '100%',
+                        width: '14rem'
+                    }}
+                    type='button'
+                >
+                    <span>
+                        Cerrar sesión
                     </span>
                 </motion.button>
             </form>

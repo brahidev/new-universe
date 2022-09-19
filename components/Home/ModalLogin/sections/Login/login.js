@@ -4,12 +4,12 @@ import {allImages} from "../../../../../utils/importAllImages"
 import {InputCustom} from '../../../../Input/input'
 import Extern from '../Extern'
 import {regExpInputs} from '../../../../../utils/regExp'
-import { storeLoginCookie, checkLoginCookie } from '../../../../../utils/cookies'
+import { storeLoginCookie, checkLoginCookie, setUserCookie } from '../../../../../utils/cookies'
 import { loginUser } from '../../../../../utils/provider/provider'
 import Loader from '../../../../Loader/Loader';
 
 
-const Entry = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, setErrorMessage }) => {
+const Entry = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, setErrorMessage, setIsLoged }) => {
 
     const [ user, setUser ] = useState({ user: '', pass: '' })
     const [ loading, setLoading ] = useState(false)
@@ -36,8 +36,13 @@ const Entry = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, set
             return;
         }
         let loginData = await loginUser(user)
-        console.log('LOGIN',loginData)
         if(loginData.data.status){
+            console.log('LOGIN',loginData)
+            let dataUser = JSON.parse(loginData.data.data[0].json);
+            dataUser.id = loginData.data.data[0].id
+            dataUser = JSON.stringify(dataUser)
+            setUserCookie(dataUser)
+            setIsLoged(true)
             storeLoginCookie()
             setProfile(true)
             setIsEntry(false)

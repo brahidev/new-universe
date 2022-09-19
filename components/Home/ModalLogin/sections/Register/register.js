@@ -86,14 +86,14 @@ const Register = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, 
 
     return(
         <>
-            <h1>Profile</h1>
+            <span className="text-blue-900 text-center block font-['Sniglet'] mx-[auto] text-3xl">Register</span>
             <form onSubmit={ sendData }>
                 <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.1 }}
                     style={{
-                        marginTop: '20%',
+                        marginTop: '10%',
                         fontSize: '100%',
                         width: '12rem',
                         marginInline: 'auto'
