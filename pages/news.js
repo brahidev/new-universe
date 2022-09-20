@@ -23,6 +23,7 @@ const NewsPage = ({ feeds }) => {
             />
             <Menu
                 scrollOn={ scrollOn }
+                section="news"
             />
             <HomeNews
                 feeds={ data }

@@ -1,23 +1,24 @@
 import { motion } from "framer-motion"
+import { allImages } from "../../utils/importAllImages"
 import styles from "./sections.module.css"
 
 const PartersAbout = () => (
-    <div className={`w-[100%] flex flex-col overflow-x-hidden ${styles.bgYellow}`}>
+    <div className={`w-[100%] flex flex-col overflow-x-hidden ${styles.bgPartner}`}>
         <span className="w-[100%] my-[2rem] text-blue-900 text-center font-bold font-['Sniglet'] text-5xl">Our Partners</span>
-        <div className="flex flex-row justify-center items-center">
-            <div className="bg-white rounded-xl m-1">
+        <div className="flex md:flex-row flex-col justify-center items-center">
+            <div className="bg-white rounded-xl m-1 md:h-[20vh] h-[30vh]">
                 <motion.img
                         animate={{
                         scale: [0.1, 0.4, 0.6, 0.8, 0.9, 1],
                         }}
                         transition={{ ease: "linear", duration: 2 }}
                         className="w-[100%] m-4" 
-                        src="https://avatars.dicebear.com/api/male/john.svg?background=%230000ff"
+                        src={allImages['Grant_For_The_Web_Logo.png'].default.src}
                         style={{
                             maxWidth:'195px'
                         }}
                     />
-                    <motion.button
+                    {/* <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.1 }}
@@ -28,29 +29,29 @@ const PartersAbout = () => (
                             position: 'absolute',
                             fontSize: '1rem',
                         }}
-                    > See more information </motion.button>
+                    > See more information </motion.button> */}
         </div>
-            <div className="bg-white rounded-xl m-1">
+            <div className="bg-white rounded-xl m-1 md:h-[20vh] h-[30vh]">
                 <motion.img
                         animate={{
                         scale: [0.1, 0.4, 0.6, 0.8, 0.9, 1],
                         }}
                         transition={{ ease: "linear", duration: 2 }}
                         className="w-[100%] m-4" 
-                        src="https://avatars.dicebear.com/api/male/john.svg?background=%230000ff"
+                        src={allImages['LogoInterledgerFoundation.png'].default.src}
                         style={{
                             maxWidth:'195px'
                         }}
                     />
             </div>
-            <div className="bg-white rounded-xl m-1">
+            <div className="bg-white rounded-xl m-1 md:h-[20vh] h-[30vh]">
                 <motion.img
                         animate={{
                         scale: [0.1, 0.4, 0.6, 0.8, 0.9, 1],
                         }}
                         transition={{ ease: "linear", duration: 2 }}
                         className="w-[100%] m-4" 
-                        src="https://avatars.dicebear.com/api/male/john.svg?background=%230000ff"
+                        src={allImages['r-nextlogo_2.png'].default.src}
                         style={{
                             maxWidth:'195px'
                         }}

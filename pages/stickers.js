@@ -20,7 +20,10 @@ const StickersPage = () => {
             <Header
                 text="Stickers"
             />
-            <HomeMenu scrollOn={scrollOn}/>
+            <HomeMenu
+                scrollOn={scrollOn}
+                section="stickers"
+            />
             <HomeStickers />
         </>
     )

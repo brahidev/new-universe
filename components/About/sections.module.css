@@ -66,6 +66,13 @@
     background-image: linear-gradient(-180deg, #FCD555 0%, #FFAE29 100%)
 }
 
+.bgPartner{
+    background-image: url('../../public/images/fondo_partners.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 @media (max-width: 768px) {
     .kirby {
         width: 215px;

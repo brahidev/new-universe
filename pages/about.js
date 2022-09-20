@@ -19,7 +19,10 @@ const About = () => {
             <Header
                 text="About"
             />
-            <HomeMenu scrollOn={scrollOn}/>
+            <HomeMenu
+                scrollOn={scrollOn}
+                section="about"
+            />
             <HomeAbout />
         </>
     )

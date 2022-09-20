@@ -6,7 +6,7 @@ import Link from 'next/link'
 import ModalLogin from '../ModalLogin'
 import star from '../../../public/images/star.png'
 
-const Menu = ({ scrollOn }) => {
+const Menu = ({ scrollOn, section = 'home' }) => {
     const [ dropdown, setDropdown ] = useState(false)
     const [ modalLoginOpen, setModalLogin ] = useState(false)
 
@@ -89,11 +89,11 @@ const Menu = ({ scrollOn }) => {
                         <li className="py-5">
                             <Link href="/" >
                                 <a className=" text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
-                                    <span>
+                                    <span className={ section === 'home' ? 'inline-block' : 'hidden' }>
                                         <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
                                     </span>
                                     <span className="text-2xl"> Home </span>
-                                    <span>
+                                    <span className={ section === 'home' ? 'inline-block' : 'hidden' }>
                                         <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
                                     </span>
                                 </a>
@@ -102,11 +102,11 @@ const Menu = ({ scrollOn }) => {
                         <li className="py-5">
                             <Link href="/stickers" >
                                 <a className=" text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
-                                    <span>
+                                    <span className={ section === 'stickers' ? 'inline-block' : 'hidden' }>
                                         <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
                                     </span>
                                     <span className="text-2xl"> Stickers </span>
-                                    <span>
+                                    <span className={ section === 'stickers' ? 'inline-block' : 'hidden' }>
                                         <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
                                     </span>
                                 </a>
@@ -115,11 +115,11 @@ const Menu = ({ scrollOn }) => {
                         <li className="py-5">
                             <Link href="/about" >
                                 <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
-                                    <span>
+                                    <span className={ section === 'about' ? 'inline-block' : 'hidden' }>
                                         <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
                                     </span>
                                     <span className="text-2xl"> About </span>
-                                    <span>
+                                    <span className={ section === 'about' ? 'inline-block' : 'hidden' }>
                                         <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
                                     </span>
                                 </a>
@@ -128,11 +128,11 @@ const Menu = ({ scrollOn }) => {
                         <li className="py-5">
                             <Link href="/news" >
                                 <a className="text-blue-900 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-900 md:p-0" aria-current="page">
-                                    <span>
+                                    <span className={ section === 'news' ? 'inline-block' : 'hidden' }>
                                         <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
                                     </span>
                                     <span className="text-2xl"> News & videos </span>
-                                    <span>
+                                    <span className={ section === 'news' ? 'inline-block' : 'hidden' }>
                                         <Image src={ star } width={ 15 } height={ 15 } className="mr-3 sm:h-9" alt="New Universe star" />
                                     </span>
                                 </a>
