@@ -9,7 +9,7 @@ const Card = ({ date, description, image, handleClose }) => {
         <BackdropModal onclick={ handleClose }>
             <motion.div
                 onClick={ (e) => e.stopPropagation() }
-                className="h-auto m-auto p-10 rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-white w-[50%]"
+                className="h-auto m-auto p-10 rounded-lg flex flex-col items-center shadow-lg shadow-indigo-500/40 bg-white w-[75%] md:w-[50%]"
                 variants={ animationsFramer.dropFromUp }
                 initial="hidden"
                 animate="visible"

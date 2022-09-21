@@ -426,7 +426,8 @@ body.dashboard {
 
 @media (max-width: 768px){
   .btnBlue{
-    min-width: 18rem;
+    width: 100%;
+    min-width: 8rem;
   }
 }
 
