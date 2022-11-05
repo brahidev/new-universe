@@ -106,7 +106,7 @@ const Entry = ({setIsLogin, setIsRegister, setIsEntry, setProfile, setError, set
                     }}
                 >
                     <InputCustom 
-                        type="text"
+                        type="password"
                         //value={''}
                         placeholder="Password"
                         label=""
